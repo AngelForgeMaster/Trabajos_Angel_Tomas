@@ -1,0 +1,134 @@
+# ==========================================
+# 1. DEPENDENCIAS Y PAQUETES (NUNCA SUBIR)
+# ==========================================
+# JavaScript / Node.js / React / Next.js
+node_modules/
+.npm/
+.yarn/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Python
+venv/
+.venv/
+env/
+ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+target/
+.gradle/
+build/
+
+# C / C++ / Compilados
+*.exe
+*.out
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
+
+# PHP / Composer
+vendor/
+
+# .NET / C#
+bin/
+obj/
+
+
+# ==========================================
+# 2. ENTORNO, SECRETOS Y BASES DE DATOS
+# ==========================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+*.pfx
+
+# Archivos de bases de datos locales y volcados
+*.sqlite
+*.sqlite3
+*.db
+*.sql.gz
+
+
+# ==========================================
+# 3. EDITOR / IDE CONFIGURACIONES LOCALES
+# ==========================================
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Eclipse / NetBeans / IntelliJ / Android Studio
+.idea/
+.eclipse/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.nbproject/
+
+
+# ==========================================
+# 4. CARPETAS DE COMPILACIÓN / BUILDS / EXPO
+# ==========================================
+dist/
+build/
+.next/
+out/
+.expo/
+web-build/
+
+
+# ==========================================
+# 5. BASURA Y TEMPORALES DE WINDOWS / SISTEMA
+# ==========================================
+*.lnk
+*.tmp
+*.bak
+*.swp
+*.log
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+
+# ==========================================
+# 6. CONFIGURACIONES Y CARPETAS EXTRAS (AQUÍ PONES LO TUYO)
+# ==========================================
+# Agrega aquí abajo las carpetas o archivos específicos del SENA que quieras ignorar
+JUEVES/anydesk/
+JUEVES/android_studio/
+LUNES/Trabajos_por_entregar_c++/
+MARTES/sena_mvc/lo_que_entendi_angel_quiñones_ficha_3229339_adso.docx
+MIERCOLES/comparacion_personajes_anastasia_angel_quiñones_3229339.rtf
+MIERCOLES/entrega_resumen_pelicula_angel_quiñones_3229339.docx
+VIERNES/paginas_web/entrega samuel/
+VIERNES/paginas_web/entrega samuel-20260918T040911Z-1-001.zip
+VIERNES/paginas_web/pagina_casos_angel_quiñones_samuel_zapata.zip
+VIERNES/presentaciones/entregable_angel_quiñoes.pdf
+VIERNES/words/words casos cabeza de pescado.docx
+
+*.zip
+*.rar
+*.7z

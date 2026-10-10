@@ -1,0 +1,13 @@
+.body {
+    @apply flex flex-col;
+}
+
+.content {
+    @apply h-[calc(100hv-56px)] overflow-hidden;
+}
+
+.container {
+    @apply h-dvh overflow-hidden;
+    @apply md:grid md:grid-cols-[220px_1fr];
+    @apply lg:grid-cols-[280px_1fr]
+}

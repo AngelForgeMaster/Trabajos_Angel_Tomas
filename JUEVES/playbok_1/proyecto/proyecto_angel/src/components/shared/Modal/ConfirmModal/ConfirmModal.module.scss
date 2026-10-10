@@ -1,0 +1,8 @@
+.btnDanger {
+    @apply bg-red-500;
+    @apply hover:bg-red-800;
+}
+
+.load {
+    @apply animate-spin;
+}

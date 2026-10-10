@@ -1,0 +1,390 @@
+:root {
+  /* Paleta Aguamarina Pastel */
+  --bg-principal: #f0f8f8;       /* Fondo general */
+  --bg-tarjeta: #ffffff;         /* Fondo de contenedores y tarjetas */
+  --color-primario: #4aa9a4;     /* Verde/Azul aguamarina principal */
+  --color-secundario: #8ad3ce;   /* Aguamarina claro (Bordes, acentos) */
+  --color-pastel-suave: #e0f2f1;  /* Fondo de listas o bloques destacados */
+  
+  /* Texto y Contrastes */
+  --texto-principal: #2c3e50;    /* Texto principal */
+  --texto-secundario: #5a738e;   /* Subtítulos o texto secundario */
+  
+  /* Alertas / Causas en Ishikawa */
+  --causa-inmediata: #e07a5f;    /* Salmón/coral para causas inmediatas */
+  --causa-basica: #457b9d;       /* Azul medio para causas básicas */
+}
+
+/* Reset Básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-principal);
+  color: var(--texto-principal);
+  line-height: 1.6;
+}
+
+/* Header & Navegación (Banner Superior) */
+.header-nav {
+  background-color: var(--color-primario);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-nav .logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.header-nav .logo span {
+  background-color: #ffffff;
+  color: var(--color-primario);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Contenedor Principal */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Hero Section (Sección Institucional) */
+.hero-section {
+  background-color: var(--bg-tarjeta);
+  border-left: 6px solid var(--color-primario);
+  border-radius: 10px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  margin-bottom: 2.5rem;
+}
+
+.hero-section h1 {
+  color: var(--color-primario);
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.hero-section h2 {
+  color: var(--texto-principal);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.hero-section h3,
+.hero-section h4 {
+  color: var(--texto-secundario);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: var(--color-secundario);
+  margin: 1.2rem 0;
+}
+
+.hero-section h5 {
+  font-size: 1.1rem;
+  color: var(--color-primario);
+  margin-bottom: 0.5rem;
+}
+
+.hero-section .description {
+  color: var(--texto-principal);
+  font-size: 0.98rem;
+  text-align: justify;
+}
+
+/* Grilla de Casos (Cards Layout) */
+.cases-grid-section .section-title {
+  color: var(--texto-principal);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--color-secundario);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Estilo de Tarjetas */
+.case-card {
+  background-color: var(--bg-tarjeta);
+  border: 1px solid var(--color-secundario);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.case-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(74, 169, 164, 0.15);
+}
+
+.case-card .badge {
+  background-color: var(--color-pastel-suave);
+  color: var(--color-primario);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  align-self: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.case-card h4 {
+  color: var(--texto-principal);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.case-card p {
+  color: var(--texto-secundario);
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+/* Botón Principal */
+.btn-primary {
+  display: inline-block;
+  text-align: center;
+  background-color: var(--color-primario);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #388e89;
+}
+
+/* Footer */
+.main-footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--texto-secundario);
+  font-size: 0.85rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--color-secundario);
+}
+
+/* --- Diagrama de Espina de Pescado CSS --- */
+.fishbone-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--bg-tarjeta);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-secundario);
+  margin-bottom: 2.5rem;
+  overflow-x: auto;
+}
+
+.fishbone-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 30px;
+}
+
+.spine-line {
+  height: 6px;
+  background-color: var(--texto-principal);
+  border-radius: 3px;
+  width: 100%;
+  position: relative;
+}
+
+.fishbone-row {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.bone-card {
+  background: var(--bg-principal);
+  padding: 12px;
+  border-radius: 8px;
+  width: 45%;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.bone-card.immediate {
+  border-top: 4px solid var(--causa-inmediata);
+}
+
+.bone-card.basic {
+  border-bottom: 4px solid var(--causa-basica);
+}
+
+.bone-card h5 {
+  color: var(--texto-principal);
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+/* Cabeza del Pescado */
+.fish-head {
+  background-color: var(--color-primario);
+  color: #ffffff;
+  padding: 1.5rem 1rem;
+  border-radius: 50% 10% 10% 50%;
+  min-width: 180px;
+  max-width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(74, 169, 164, 0.3);
+}
+
+.fish-head h4 {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.fish-head p {
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f9;
+  color: #2d3748;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: #1a365d;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  background-color: #2b6cb0;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: #1a365d;
+}
+
+.caso {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.caso h2 {
+  color: #2b6cb0;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #edf2f7;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 12px;
+  padding-left: 5px;
+}
+
+strong {
+  color: #2d3748;
+}
+
+code {
+  background-color: #edf2f7;
+  color: #c53030;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}

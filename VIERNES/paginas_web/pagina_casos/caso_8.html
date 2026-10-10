@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso 8 - Investigación de Accidentes SST</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+
+    <!-- Navegación Principal (Banner Superior) -->
+    <header class="header-nav">
+        <div class="logo">
+            <span>SST</span> ADSO
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="caso_1.html">Caso 1</a>
+            <a href="caso_2.html">Caso 2</a>
+            <a href="caso_3.html">Caso 3</a>
+            <a href="caso_4.html">Caso 4</a>
+            <a href="caso_5.html">Caso 5</a>
+            <a href="caso_6.html">Caso 6</a>
+            <a href="caso_7.html">Caso 7</a>
+            <a href="caso_8.html" class="active">Caso 8</a>
+            <a href="caso_9.html">Caso 9</a>
+            <a href="caso_10.html">Caso 10</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Encabezado del Caso -->
+        <section class="hero-section">
+            <span class="badge">Análisis NTC 3701</span>
+            <h1>Caso 8: Accidente Vial de Ingeniero DevOps</h1>
+            <p class="description">
+                <strong>Descripción del Evento:</strong> Tras la caída masiva de servidores de una entidad aliada, la gerencia ordenó trasladar de urgencia discos duros con respaldos físicos al centro de datos alterno. El Ingeniero DevOps utilizó su motocicleta personal en medio de un fuerte aguacero y transitando a alta velocidad por la premura de restablecer el software bancario. En un cruce, otro vehículo omitió una señal de pare e impactó la motocicleta, arrojándolo al pavimento y causándole múltiples traumatismos.
+            </p>
+        </section>
+
+        <!-- Diagrama Visual de Espina de Pescado -->
+        <h3 class="section-title">Diagrama Visual de Espina de Pescado (Ishikawa)</h3>
+        <div class="fishbone-container">
+            <div class="fishbone-main">
+                
+                <!-- Espinas Superiores (Causas Inmediatas) -->
+                <div class="fishbone-row top-row">
+                    <div class="bone-card immediate">
+                        <h5>Condiciones Subestándares</h5>
+                        <p>• Lluvia intensa (baja visibilidad y adherencia)</p>
+                        <p>• Omisión de señal de pare por tercero</p>
+                        <p>• Inexistencia de transporte corporativo seguro</p>
+                    </div>
+                    <div class="bone-card immediate">
+                        <h5>Actos Subestándares</h5>
+                        <p>• Velocidad considerable bajo la lluvia</p>
+                        <p>• Traslado de riesgo en moto personal por urgencia</p>
+                    </div>
+                </div>
+
+                <!-- Columna Central / Espina Dorsal -->
+                <div class="spine-line"></div>
+
+                <!-- Espinas Inferiores (Causas Básicas) -->
+                <div class="fishbone-row bottom-row">
+                    <div class="bone-card basic">
+                        <h5>Factores Personales</h5>
+                        <p>• Presión y afán operacional (software bancario)</p>
+                        <p>• Disminución de la percepción del riesgo vial</p>
+                    </div>
+                    <div class="bone-card basic">
+                        <h5>Factores del Trabajo</h5>
+                        <p>• Ausencia de Plan Estratégico de Seguridad Vial (PESV)</p>
+                        <p>• BCP dependiente del transporte físico</p>
+                        <p>• Presión gerencial sin valorar riesgos de SST</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Cabeza del Pescado -->
+            <div class="fish-head">
+                <h4>EFECTO</h4>
+                <p>Accidente vial y múltiples traumatismos en Ingeniero DevOps</p>
+            </div>
+        </div>
+
+        <!-- Desglose Detallado de Causalidad -->
+        <h3 class="section-title">Desglose Metodológico de Causalidad</h3>
+        <div class="cards-container" style="margin-bottom: 3rem;">
+
+            <!-- Causas Inmediatas -->
+            <article class="case-card" style="border-top: 4px solid var(--causa-inmediata);">
+                <span class="badge" style="background-color: #fbebe8; color: var(--causa-inmediata);">1. Causas Inmediatas</span>
+                
+                <h4 style="margin-top: 0.8rem; color: var(--causa-inmediata);">Condiciones Ambientales Subestándares</h4>
+                <ul style="margin-left: 1.2rem; margin-bottom: 1rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Factores climáticos adversos:</strong> Lluvia intensa (fuerte aguacero) que redujo sensiblemente la visibilidad y la adherencia del piso.</li>
+                    <li><strong>Imprudencia de terceros:</strong> El conductor del otro vehículo ignoró la señal de pare en un cruce vial.</li>
+                    <li><strong>Falta de transporte seguro:</strong> Inexistencia de un vehículo de la empresa o convenio logístico para movilización de activos.</li>
+                </ul>
+
+                <h4 style="color: var(--causa-inmediata);">Actos Subestándares</h4>
+                <ul style="margin-left: 1.2rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Conducción a velocidad inadecuada:</strong> Transitar a velocidad considerable bajo condiciones atmosféricas adversas.</li>
+                    <li><strong>Aceptación de transporte de riesgo:</strong> Utilizar un vehículo personal tipo motocicleta bajo condiciones climáticas peligrosas.</li>
+                </ul>
+            </article>
+
+            <!-- Causas Básicas -->
+            <article class="case-card" style="border-top: 4px solid var(--causa-basica);">
+                <span class="badge" style="background-color: #e8f1f5; color: var(--causa-basica);">2. Causas Básicas</span>
+                
+                <h4 style="margin-top: 0.8rem; color: var(--causa-basica);">Factores Personales</h4>
+                <ul style="margin-left: 1.2rem; margin-bottom: 1rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Presión y afán operacional:</strong> Estado de prisa e inclinación a asumir riesgos viales motivado por la urgencia del servicio bancario.</li>
+                    <li><strong>Baja percepción del riesgo:</strong> Priorizar el tiempo de respuesta técnica por encima de la propia integridad física.</li>
+                </ul>
+
+                <h4 style="color: var(--causa-basica);">Factores del Trabajo</h4>
+                <ul style="margin-left: 1.2rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Falta de PESV:</strong> Inexistencia del Plan Estratégico de Seguridad Vial para desplazamientos laborales o con fines del servicio.</li>
+                    <li><strong>BCP deficiente:</strong> Plan de continuidad dependiente del desplazamiento físico en vehículos particulares sin canales de réplica remota ni logística segura.</li>
+                    <li><strong>Presión organizacional:</strong> Exigencia gerencial de tiempos inmediatos de respuesta sin evaluar los riesgos viales involucrados.</li>
+                    <li><strong>Vehículo no evaluado:</strong> Utilización de motocicleta privada sin verificación de estado mecánico ni elementos de protección.</li>
+                </ul>
+            </article>
+
+        </div>
+
+        <!-- Metodología de los 5 Porqués -->
+        <h3 class="section-title">Metodología de los 5 Porqués</h3>
+        <section class="hero-section" style="margin-bottom: 2.5rem;">
+            <form id="form-porques">
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">1. ¿Por qué el Ingeniero DevOps sufrió un accidente de tránsito?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque la motocicleta que conducía fue impactada en un cruce por un vehículo que ignoró un pare, arrojándolo al pavimento.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">2. ¿Por qué el impacto tuvo consecuencias de múltiples traumatismos?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque transitaba a velocidad considerable bajo la lluvia intensa, dificultando frenar o esquivar la maniobra imprudente del otro conductor.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">3. ¿Por qué el ingeniero transitaba apresurado en motocicleta bajo un aguacero?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque debía llevar urgentemente discos duros con respaldos físicos al centro de datos alterno para restablecer un software bancario cado.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">4. ¿Por qué usó su motocicleta personal para una tarea crítica de la empresa?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque la empresa no disponía de vehículos corporativos, conductores designados ni convenios con servicios de mensajería o transporte logístico de emergencia.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">5. ¿Por qué la continuidad del negocio dependía del transporte físico de respaldos por parte de empleados?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Por fallas en la arquitectura del BCP y falta de adopción de un Plan Estratégico de Seguridad Vial (PESV) que regule y proteja los desplazamientos laborales.">
+                </div>
+                <button type="button" class="btn-primary" onclick="alert('Análisis de 5 Porqués del Caso 8 guardado correctamente.')">Exportar / Guardar Análisis</button>
+            </form>
+        </section>
+
+        <!-- Medidas Preventivas y Correctivas -->
+        <h3 class="section-title">Medidas Preventivas y Correctivas</h3>
+        <section class="hero-section" style="border-left-color: var(--causa-basica);">
+            <ul style="margin-left: 1.2rem; color: var(--texto-principal);">
+                <li style="margin-bottom: 0.5rem;"><strong>Implementación del PESV (Plan Estratégico de Seguridad Vial):</strong> Formalizar protocolos para la regulación de desplazamientos laborales, prohibiendo el uso de motocicletas personales para la movilización de activos en condiciones meteorológicas adversas.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Rediseño del BCP y Réplica Cloud:</strong> Automatizar la replicación de respaldos a través de redes secundarias dedicadas o fibra óptica (Direct Connect/ExpressRoute) para eliminar la dependencia de medios físicos.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Convenio Logístico de Emergencias:</strong> Contratar empresas de mensajería o transporte blindado especializado para la custodia y traslado de información sensible o equipos informáticos.</li>
+                <li><strong>Sensibilización en Manejo Defensivo:</strong> Capacitar al personal técnico en prevención de riesgos viales, gestión de la presión operativa y conducción segura en lluvia.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>SENA CDMC - Centro de Diseño y Manofactura del cuero / Seguridad y salud en el trabajo &copy; 2026</p>
+    </footer>
+
+</body>
+</html>

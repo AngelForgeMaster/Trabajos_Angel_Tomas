@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso 2 - Investigación de Accidentes SST</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+
+    <!-- Navegación Principal (Banner Superior) -->
+    <header class="header-nav">
+        <div class="logo">
+            <span>SST</span> ADSO
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="caso_1.html">Caso 1</a>
+            <a href="caso_2.html" class="active">Caso 2</a>
+            <a href="caso_3.html">Caso 3</a>
+            <a href="caso_4.html">Caso 4</a>
+            <a href="caso_5.html">Caso 5</a>
+            <a href="caso_6.html">Caso 6</a>
+            <a href="caso_7.html">Caso 7</a>
+            <a href="caso_8.html">Caso 8</a>
+            <a href="caso_9.html">Caso 9</a>
+            <a href="caso_10.html">Caso 10</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Encabezado del Caso -->
+        <section class="hero-section">
+            <span class="badge">Análisis NTC 3701</span>
+            <h1>Caso 2: Caída al mismo nivel de Analista de QA</h1>
+            <p class="description">
+                <strong>Descripción del Evento:</strong> Durante una jornada nocturna extendida de pruebas de usabilidad (UI/UX), una analista de QA sufrió fatiga visual, cefalea y mareo al levantarse. Esto provocó una pérdida de equilibrio y posterior caída con impacto en la rodilla izquierda contra un archivador metálico.
+            </p>
+        </section>
+
+        <!-- Efecto Principal (Cabeza del Pescado) -->
+        <section class="case-card" style="margin-bottom: 2rem; border-left: 6px solid var(--causa-inmediata);">
+            <h3 style="color: var(--causa-inmediata); margin-bottom: 0.5rem;">Efecto (Cabeza del Pescado)</h3>
+            <p style="font-size: 1.1rem; font-weight: 600; color: var(--texto-principal);">
+                Caída al mismo nivel con contusión en rodilla izquierda por episodio de mareo y pérdida de equilibrio de la Analista de QA.
+            </p>
+        </section>
+
+        <!-- Diagrama de Espina de Pescado (Ishikawa) -->
+        <h3 class="section-title">Análisis de Causalidad (Diagrama de Ishikawa)</h3>
+        
+        <div class="cards-container" style="margin-bottom: 3rem;">
+
+            <!-- Causas Inmediatas -->
+            <article class="case-card" style="border-top: 4px solid var(--causa-inmediata);">
+                <span class="badge" style="background-color: #fbebe8; color: var(--causa-inmediata);">1. Causas Inmediatas</span>
+                
+                <h4 style="margin-top: 0.8rem; color: var(--causa-inmediata);">Condiciones Ambientales Subestándares</h4>
+                <ul style="margin-left: 1.2rem; margin-bottom: 1rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Iluminación deficiente:</strong> Parpadeo intermitente en la luminaria principal de la oficina auxiliar sin reparar hace días.</li>
+                    <li><strong>Puesto de trabajo:</strong> Pantalla/monitor asignado carece de filtros para mitigar luz azul en turnos nocturnos.</li>
+                    <li><strong>Obstáculos/Distribución:</strong> Proximidad del archivador metálico en la ruta de circulación.</li>
+                </ul>
+
+                <h4 style="color: var(--causa-inmediata);">Actos Subestándares</h4>
+                <ul style="margin-left: 1.2rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Omisión de pausas:</strong> Ejecución de pruebas continuas sin pausas activas ni descansos visuales.</li>
+                    <li><strong>Movimiento abrupto:</strong> Ponerse de pie rápidamente tras presentar fatiga visual y síntomas de mareo.</li>
+                </ul>
+            </article>
+
+            <!-- Causas Básicas -->
+            <article class="case-card" style="border-top: 4px solid var(--causa-basica);">
+                <span class="badge" style="background-color: #e8f1f5; color: var(--causa-basica);">2. Causas Básicas</span>
+                
+                <h4 style="margin-top: 0.8rem; color: var(--causa-basica);">Factores Personales</h4>
+                <ul style="margin-left: 1.2rem; margin-bottom: 1rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Fatiga física y visual:</strong> Agotamiento acumulado por la jornada extendida y el constante cambio de contraste (modo claro/oscuro).</li>
+                    <li><strong>Alteración de salud:</strong> Cefalea aguda, visión borrosa y posterior vértigo/mareo.</li>
+                </ul>
+
+                <h4 style="color: var(--causa-basica);">Factores del Trabajo</h4>
+                <ul style="margin-left: 1.2rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Mantenimiento locativo:</strong> Falta de atención oportuna para sustituir o reparar la luminaria averiada.</li>
+                    <li><strong>Supervisión deficiente:</strong> Ausencia de control en los tiempos máximos de trabajo continuo nocturno.</li>
+                    <li><strong>Equipos inadecuados:</strong> Inexistencia de monitores o accesorios ergonómicos para protección visual.</li>
+                </ul>
+            </article>
+
+        </div>
+
+        <!-- Metodología de los 5 Porqués -->
+        <h3 class="section-title">Metodología de los 5 Porqués</h3>
+        <section class="hero-section" style="margin-bottom: 2.5rem;">
+            <form id="form-porques">
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">1. ¿Por qué se cayó la analista?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque sufrió una pérdida repentina del equilibrio al ponerse de pie de su escritorio.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">2. ¿Por qué perdió el equilibrio?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque experimentó un episodio de mareo intenso, cefalea y visión borrosa.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">3. ¿Por qué presentó mareo y visión borrosa?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Por la fatiga visual prolongada y el parpadeo constante de la luminaria defectuosa durante la noche.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">4. ¿Por qué trabajó en esas condiciones ambientales de luz?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque no se había atendido el reporte de mantenimiento de las luminarias de la oficina auxiliar.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">5. ¿Por qué no había control sobre las jornadas de visualización nocturna?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Por falta de protocolos de higiene visual y falta de rotación/pausas programadas para pruebas de QA.">
+                </div>
+                <button type="button" class="btn-primary" onclick="alert('Análisis de 5 Porqués guardado correctamente.')">Exportar / Guardar Análisis</button>
+            </form>
+        </section>
+
+        <!-- Medidas Preventivas y Correctivas -->
+        <h3 class="section-title">Medidas Preventivas y Correctivas</h3>
+        <section class="hero-section" style="border-left-color: var(--causa-basica);">
+            <ul style="margin-left: 1.2rem; color: var(--texto-principal);">
+                <li style="margin-bottom: 0.5rem;"><strong>Mantenimiento de infraestructura:</strong> Establecer un cronograma prioritario para el reemplazo de luminarias averiadas en áreas administrativas y auxiliares.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Equipamiento ergonómico visual:</strong> Dotar las estaciones de QA con monitores con filtro antirreflejo y modo de luz azul activado.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Protocolos de Pausas Activas:</strong> Implementar pausas de descanso visual obligatorias (regla 20-20-20) durante jornadas nocturnas o pruebas de UI extensas.</li>
+                <li><strong>Redistribución segura del espacio:</strong> Reubicar el archivador metálico fuera del área inmediata de desplazamiento para prevenir golpes en caso de caídas.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Estructura VisuaI de Espina de Pescado -->
+<h3 class="section-title">Diagrama Visual de Espina de Pescado</h3>
+<div class="fishbone-container">
+    <div class="fishbone-main">
+        
+        <!-- Espinas Superiores (Causas Inmediatas) -->
+        <div class="fishbone-row top-row">
+            <div class="bone-card immediate">
+                <h5>Condiciones Ambientales</h5>
+                <p>• Iluminación parpadeante</p>
+                <p>• Monitor sin filtro luz azul</p>
+                <p>• Archivador en zona de paso</p>
+            </div>
+            <div class="bone-card immediate">
+                <h5>Actos Subestándares</h5>
+                <p>• Omisión de pausas activas</p>
+                <p>• Levantarse abruptamente</p>
+            </div>
+        </div>
+
+        <!-- Columna Central / Espina Dorsal -->
+        <div class="spine-line"></div>
+
+        <!-- Espinas Inferiores (Causas Básicas) -->
+        <div class="fishbone-row bottom-row">
+            <div class="bone-card basic">
+                <h5>Factores Personales</h5>
+                <p>• Fatiga física y visual</p>
+                <p>• Cefalea, visión borrosa y mareo</p>
+            </div>
+            <div class="bone-card basic">
+                <h5>Factores del Trabajo</h5>
+                <p>• Mantenimiento locativo tardío</p>
+                <p>• Falta de control en turnos QA</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Cabeza del Pescado (Efecto) -->
+    <div class="fish-head">
+        <h4>EFECTO</h4>
+        <p>Caída al mismo nivel con contusión en rodilla izquierda</p>
+    </div>
+</div>
+
+    <footer class="main-footer">
+        <p>SENA CDMC - Centro de Diseño y Manofacutra del cuero / Seguridad y salud en el trabajo &copy; 2026</p>
+    </footer>
+
+</body>
+</html>

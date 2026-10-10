@@ -1,0 +1,51 @@
+.container {
+    @apply hidden border-r bg-gray-100/40;
+    @apply md:block;
+}
+
+.content {
+    @apply flex h-full max-h-screen flex-col gap-2;
+}
+
+.header {
+    @apply flex h-14 items-center border-b px-14;
+    @apply lg:h-[60px] lg:px-6;
+}
+
+.nameApp {
+    @apply flex items-center gap-2 font-semibold;
+}
+
+.iconApp {
+    @apply h-6 w-6;
+}
+
+.menu {
+    @apply grid items-start px-2 text-sm font-medium;
+    @apply lg:px-4;
+}
+
+.item {
+    @apply flex items-center gap-3 rounded-lg px-3 py-3 text-gray-500 transition-all;
+    @apply hover:text-cyan-400;
+}
+
+.iconItem {
+    @apply h-4 w-4;
+}
+
+.footer {
+    @apply mx-auto p-4;
+}
+
+.btnLogout {
+    @apply w-full text-white px-12;
+    background-color: black;
+    width: 100%;
+    font-size: 18px;
+    border: 3px solid black;
+}
+
+.body {
+    @apply flex-1;
+}

@@ -1,0 +1,19 @@
+.container {
+    @apply p-3;
+}
+
+.item {
+    @apply flex items-center space-x-3 mb-7;
+}
+
+.textContainer {
+    @apply space-y-2 w-full;
+}
+
+.textTop {
+    @apply h-4 w-full bg-slate-300;
+}
+
+.textBtutom {
+    @apply h-4 w-[80%] bg-slate-300;
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso 10 - Investigación de Accidentes SST</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+
+    <!-- Navegación Principal (Banner Superior) -->
+    <header class="header-nav">
+        <div class="logo">
+            <span>SST</span> ADSO
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="caso_1.html">Caso 1</a>
+            <a href="caso_2.html">Caso 2</a>
+            <a href="caso_3.html">Caso 3</a>
+            <a href="caso_4.html">Caso 4</a>
+            <a href="caso_5.html">Caso 5</a>
+            <a href="caso_6.html">Caso 6</a>
+            <a href="caso_7.html">Caso 7</a>
+            <a href="caso_8.html">Caso 8</a>
+            <a href="caso_9.html">Caso 9</a>
+            <a href="caso_10.html" class="active">Caso 10</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Encabezado del Caso -->
+        <section class="hero-section">
+            <span class="badge">Análisis NTC 3701</span>
+            <h1>Caso 10: Síncope por Fatiga Crónica en Despliegue</h1>
+            <p class="description">
+                <strong>Descripción del Evento:</strong> Durante un despliegue crítico a producción que presentó fallas no contempladas, un Ingeniero de Software fue sometido a una jornada extenuante de 28 horas continuas de trabajo sin relevos, alimentándose solo con café y comida rápida. Al sufrir un síncope por agotamiento neurofisiológico y descompensación metabólica, se desvaneció e impactó fuertemente su frente contra el borde filoso del escritorio, sufriendo un trauma craneal en la región frontal.
+            </p>
+        </section>
+
+        <!-- Diagrama Visual de Espina de Pescado -->
+        <h3 class="section-title">Diagrama Visual de Espina de Pescado (Ishikawa)</h3>
+        <div class="fishbone-container">
+            <div class="fishbone-main">
+                
+                <!-- Espinas Superiores (Causas Inmediatas) -->
+                <div class="fishbone-row top-row">
+                    <div class="bone-card immediate">
+                        <h5>Condiciones Subestándares</h5>
+                        <p>• Jornada extenuante de 28 horas continuas</p>
+                        <p>• Dieta basada en café y comida rápida</p>
+                        <p>• Bordes filosos del escritorio sin amortiguación</p>
+                    </div>
+                    <div class="bone-card immediate">
+                        <h5>Actos Subestándares</h5>
+                        <p>• Exceder límites de resistencia física</p>
+                        <p>• Omisión del reporte oportuno de fatiga extrema</p>
+                    </div>
+                </div>
+
+                <!-- Columna Central / Espina Dorsal -->
+                <div class="spine-line"></div>
+
+                <!-- Espinas Inferiores (Causas Básicas) -->
+                <div class="fishbone-row bottom-row">
+                    <div class="bone-card basic">
+                        <h5>Factores Personales</h5>
+                        <p>• Agotamiento neurofisiológico y privación de sueño</p>
+                        <p>• Descompensación metabólica por alto café/estrés</p>
+                    </div>
+                    <div class="bone-card basic">
+                        <h5>Factores del Trabajo</h5>
+                        <p>• Sin turnos de guardia ni relevos en despliegues</p>
+                        <p>• Violación de límites legales de trabajo continuo</p>
+                        <p>• Gestión de crisis basada en presión sin rollback</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Cabeza del Pescado -->
+            <div class="fish-head">
+                <h4>EFECTO</h4>
+                <p>Síncope, desvanecimiento y trauma frontal por golpe contra escritorio</p>
+            </div>
+        </div>
+
+        <!-- Desglose Detallado de Causalidad -->
+        <h3 class="section-title">Desglose Metodológico de Causalidad</h3>
+        <div class="cards-container" style="margin-bottom: 3rem;">
+
+            <!-- Causas Inmediatas -->
+            <article class="case-card" style="border-top: 4px solid var(--causa-inmediata);">
+                <span class="badge" style="background-color: #fbebe8; color: var(--causa-inmediata);">1. Causas Inmediatas</span>
+                
+                <h4 style="margin-top: 0.8rem; color: var(--causa-inmediata);">Condiciones Ambientales Subestándares</h4>
+                <ul style="margin-left: 1.2rem; margin-bottom: 1rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Exposición a jornadas extenuantes:</strong> Permanencia obligatoria en la oficina cumpliendo 28 horas continuas de labor sin descansos ni relevos.</li>
+                    <li><strong>Nutrición e hidratación inadecuada:</strong> Alimentación basada exclusivamente en café y comida rápida durante la atención de la contingencia.</li>
+                    <li><strong>Diseño del mobiliario:</strong> Bordes y esquinas filosas del escritorio sin protecciones de seguridad para amortiguar impactos accidentales.</li>
+                </ul>
+
+                <h4 style="color: var(--causa-inmediata);">Actos Subestándares</h4>
+                <ul style="margin-left: 1.2rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Exceder la capacidad física:</strong> Continuar realizando inspección de código y labores complejas con signos evidentes de agotamiento.</li>
+                    <li><strong>Omisión de reporte:</strong> No solicitar el reemplazo ni detener la labor al detectar la pérdida paulatina de capacidades físicas y concentración.</li>
+                </ul>
+            </article>
+
+            <!-- Causas Básicas -->
+            <article class="case-card" style="border-top: 4px solid var(--causa-basica);">
+                <span class="badge" style="background-color: #e8f1f5; color: var(--causa-basica);">2. Causas Básicas</span>
+                
+                <h4 style="margin-top: 0.8rem; color: var(--causa-basica);">Factores Personales</h4>
+                <ul style="margin-left: 1.2rem; margin-bottom: 1rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Agotamiento neurofisiológico:</strong> Severa privación de sueño y sobrecarga cognitiva derivadas del esfuerzo ininterrumpido.</li>
+                    <li><strong>Descompensación metabólica:</strong> Alteraciones de salud por ingesta masiva de cafeína, falta de nutrientes y estrés agudo.</li>
+                </ul>
+
+                <h4 style="color: var(--causa-basica);">Factores del Trabajo</h4>
+                <ul style="margin-left: 1.2rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Falta de planificación en despliegues:</strong> Ausencia de cuadrillas de soporte, turnos rotativos o relevos programados para salidas a producción.</li>
+                    <li><strong>Gestión deficiente del riesgo psicosocial:</strong> Violación de la normativa de jornadas laborales e inexistencia de descansos obligatorios.</li>
+                    <li><strong>Prácticas organizacionales deficientes:</strong> Atención de crisis enfocada en presionar al personal técnico en vez de activar protocolos de reversión (Rollback).</li>
+                </ul>
+            </article>
+
+        </div>
+
+        <!-- Metodología de los 5 Porqués -->
+        <h3 class="section-title">Metodología de los 5 Porqués</h3>
+        <section class="hero-section" style="margin-bottom: 2.5rem;">
+            <form id="form-porques">
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">1. ¿Por qué el Ingeniero de Software sufrió un trauma en la región frontal?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque se desvaneció súbitamente y golpeó su cabeza contra el borde del escritorio de trabajo.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">2. ¿Por qué se desvaneció el trabajador?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque sufrió un síncope debido a la descompensación metabólica y la fatiga neurofisiológica acumulada.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">3. ¿Por qué presentaba ese nivel de fatiga y descompensación?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque llevaba 28 horas continuas trabajando sin dormir, alimentándose únicamente con café y comida rápida.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">4. ¿Por qué permaneció 28 horas continuas atendiendo la contingencia?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque no se planificaron cuadrillas de relevo ni turnos de soporte para acompañar el despliegue a producción.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">5. ¿Por qué se obligó a resolver el fallo de manera ininterrumpida sin descansar?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Por fallas en la gestión del riesgo psicosocial y la falta de un protocolo claro de Rollback que cancelara el despliegue ante contingencias.">
+                </div>
+                <button type="button" class="btn-primary" onclick="alert('Análisis de 5 Porqués del Caso 10 guardado correctamente.')">Exportar / Guardar Análisis</button>
+            </form>
+        </section>
+
+        <!-- Medidas Preventivas y Correctivas -->
+        <h3 class="section-title">Medidas Preventivas y Correctivas</h3>
+        <section class="hero-section" style="border-left-color: var(--causa-basica);">
+            <ul style="margin-left: 1.2rem; color: var(--texto-principal);">
+                <li style="margin-bottom: 0.5rem;"><strong>Política Estricta de Horas Máximas de Trabajo:</strong> Establecer un límite máximo e infranqueable de horas continuas de labor (máximo 12 horas con descansos obligatorios) con desconexión laboral forzosa.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Protocolos de Despliegue (DevOps) y Relevos:</strong> Organizar turnos de guardia rotativos para salidas a producción y definir una ventana de tiempo máxima tras la cual sea obligatorio ejecutar un *Rollback* (reversión).</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Gestión del Riesgo Psicosocial y Nutrición:</strong> Garantizar tiempos de alimentación balanceada y descanso durante ventanas de mantenimiento o emergencias técnicas.</li>
+                <li><strong>Adecuación Ergonómica y de Seguridad Física:</strong> Instalar protectores/amortiguadores de impacto en esquinas de muebles y escritorios para reducir severidad de golpes en accidentes.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>SENA CDMC - Centro de Diseño y Manofactura del cuero / Seguridad y salud en el trabajo &copy; 2026</p>
+    </footer>
+
+</body>
+</html>

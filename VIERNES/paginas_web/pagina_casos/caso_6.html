@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso 6 - Investigación de Accidentes SST</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+
+    <!-- Navegación Principal (Banner Superior) -->
+    <header class="header-nav">
+        <div class="logo">
+            <span>SST</span> ADSO
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="caso_1.html">Caso 1</a>
+            <a href="caso_2.html">Caso 2</a>
+            <a href="caso_3.html">Caso 3</a>
+            <a href="caso_4.html">Caso 4</a>
+            <a href="caso_5.html">Caso 5</a>
+            <a href="caso_6.html" class="active">Caso 6</a>
+            <a href="caso_7.html">Caso 7</a>
+            <a href="caso_8.html">Caso 8</a>
+            <a href="caso_9.html">Caso 9</a>
+            <a href="caso_10.html">Caso 10</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Encabezado del Caso -->
+        <section class="hero-section">
+            <span class="badge">Análisis NTC 3701</span>
+            <h1>Caso 6: Fractura en Pasillo Administrativo</h1>
+            <p class="description">
+                <strong>Descripción del Evento:</strong> El Tech Lead caminaba apresuradamente por el pasillo principal hacia una reunión de emergencia. Se tropezó fuertemente con un manojo de cables de red y alimentación sin canalizar, dejados tras una redistribución de escritorios. El impacto provocó una caída al mismo nivel y una fractura en su muñeca izquierda.
+            </p>
+        </section>
+
+        <!-- Diagrama Visual de Espina de Pescado -->
+        <h3 class="section-title">Diagrama Visual de Espina de Pescado (Ishikawa)</h3>
+        <div class="fishbone-container">
+            <div class="fishbone-main">
+                
+                <!-- Espinas Superiores (Causas Inmediatas) -->
+                <div class="fishbone-row top-row">
+                    <div class="bone-card immediate">
+                        <h5>Condiciones Subestándares</h5>
+                        <p>• Cables sueltos y expuestos en el piso</p>
+                        <p>• Inexistencia de canaletas o protecciones</p>
+                        <p>• Sin cinta ni avisos de señalización</p>
+                    </div>
+                    <div class="bone-card immediate">
+                        <h5>Actos Subestándares</h5>
+                        <p>• Desplazamiento apresurado por urgencia</p>
+                        <p>• Inobservancia del piso al caminar</p>
+                    </div>
+                </div>
+
+                <!-- Columna Central / Espina Dorsal -->
+                <div class="spine-line"></div>
+
+                <!-- Espinas Inferiores (Causas Básicas) -->
+                <div class="fishbone-row bottom-row">
+                    <div class="bone-card basic">
+                        <h5>Factores Personales</h5>
+                        <p>• Estado de prisa y apuro (atención dispersa)</p>
+                        <p>• Presión por reunión de emergencia</p>
+                    </div>
+                    <div class="bone-card basic">
+                        <h5>Factores del Trabajo</h5>
+                        <p>• Reubicación de escritorios sin canalización</p>
+                        <p>• Trabajos de infraestructura incompletos</p>
+                        <p>• Falta de Housekeeping (5S) y supervisión</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Cabeza del Pescado -->
+            <div class="fish-head">
+                <h4>EFECTO</h4>
+                <p>Trauma severo y fractura en muñeca izquierda por caída</p>
+            </div>
+        </div>
+
+        <!-- Desglose Detallado de Causalidad -->
+        <h3 class="section-title">Desglose Metodológico de Causalidad</h3>
+        <div class="cards-container" style="margin-bottom: 3rem;">
+
+            <!-- Causas Inmediatas -->
+            <article class="case-card" style="border-top: 4px solid var(--causa-inmediata);">
+                <span class="badge" style="background-color: #fbebe8; color: var(--causa-inmediata);">1. Causas Inmediatas</span>
+                
+                <h4 style="margin-top: 0.8rem; color: var(--causa-inmediata);">Condiciones Ambientales Subestándares</h4>
+                <ul style="margin-left: 1.2rem; margin-bottom: 1rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Obstáculos en circulación:</strong> Cables de red y de alimentación cruzando de forma expuesta sobre el piso del pasillo peatonal.</li>
+                    <li><strong>Sin canalización:</strong> Inexistencia de canaletas pasacables de seguridad o cinta de protección sobre el suelo.</li>
+                    <li><strong>Falta de señalización:</strong> Ausencia de cinta de demarcación o avisos preventivos sobre trabajos de cableado inconclusos.</li>
+                </ul>
+
+                <h4 style="color: var(--causa-inmediata);">Actos Subestándares</h4>
+                <ul style="margin-left: 1.2rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Desplazamiento apresurado:</strong> Transitar con prisa por el pasillo ante la urgencia de asistir a una junta.</li>
+                    <li><strong>Falta de atención al entorno:</strong> No fijarse en los cables sueltos sobre la superficie del suelo mientras caminaba.</li>
+                </ul>
+            </article>
+
+            <!-- Causas Básicas -->
+            <article class="case-card" style="border-top: 4px solid var(--causa-basica);">
+                <span class="badge" style="background-color: #e8f1f5; color: var(--causa-basica);">2. Causas Básicas</span>
+                
+                <h4 style="margin-top: 0.8rem; color: var(--causa-basica);">Factores Personales</h4>
+                <ul style="margin-left: 1.2rem; margin-bottom: 1rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Prisa / Apuro:</strong> Disminución del estado de alerta y de la atención al entorno motivado por la urgencia requerida.</li>
+                </ul>
+
+                <h4 style="color: var(--causa-basica);">Factores del Trabajo</h4>
+                <ul style="margin-left: 1.2rem; font-size: 0.9rem; color: var(--texto-secundario);">
+                    <li><strong>Planificación deficiente:</strong> Realizar redistribución de mobiliario sin asegurar la canalización y cableado inmediato.</li>
+                    <li><strong>Mantenimiento incompleto:</strong> Dejar tareas de cableado a medio terminar en zonas de tránsito común.</li>
+                    <li><strong>Falta de Housekeeping (5S):</strong> Ausencia de normas que prohíban elementos u obstáculos en vías de paso.</li>
+                    <li><strong>Supervisión de SST inadecuada:</strong> Permitir el libre tránsito por una zona intervenida sin delimitar el riesgo.</li>
+                </ul>
+            </article>
+
+        </div>
+
+        <!-- Metodología de los 5 Porqués -->
+        <h3 class="section-title">Metodología de los 5 Porqués</h3>
+        <section class="hero-section" style="margin-bottom: 2.5rem;">
+            <form id="form-porques">
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">1. ¿Por qué el Tech Lead sufrió una fractura en la muñeca?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque cayó frontalmente al suelo apoyando su mano izquierda tras tropezar en el pasillo.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">2. ¿Por qué se tropezó en el pasillo principal?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque su calzado se enredó en un manojo de cables de red y energía que cruzaban sin protección por el piso.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">3. ¿Por qué los cables estaban sueltos en medio del paso peatonal?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Porque el personal técnico no alcanzó a terminar la canalización tras la redistribución de los escritorios.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">4. ¿Por qué el área intervenida no estaba señalizada ni delimitada?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Por falta de supervisión en SST y ausencia de protocolos de demarcación obligatoria para trabajos inconclusos.">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="font-weight: 600; display: block; margin-bottom: 0.3rem;">5. ¿Por qué se dejó el cableado expuesto mientras transitaba el personal?</label>
+                    <input type="text" class="input-porque" style="width: 100%; padding: 8px; border: 1px solid var(--color-secundario); border-radius: 6px;" value="Por una planificación deficiente entre el área administrativa y técnica, que no contempló la entrega de áreas 100% seguras.">
+                </div>
+                <button type="button" class="btn-primary" onclick="alert('Análisis de 5 Porqués del Caso 6 guardado correctamente.')">Exportar / Guardar Análisis</button>
+            </form>
+        </section>
+
+        <!-- Medidas Preventivas y Correctivas -->
+        <h3 class="section-title">Medidas Preventivas y Correctivas</h3>
+        <section class="hero-section" style="border-left-color: var(--causa-basica);">
+            <ul style="margin-left: 1.2rem; color: var(--texto-principal);">
+                <li style="margin-bottom: 0.5rem;"><strong>Canalización Inmediata y Pasacables:</strong> Instalar canaletas fijas de piso o pasacables gomados de alta resistencia en todos los pasillos y zonas de tránsito.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Protocolo de Delimitación y Señalización:</strong> Prohibir el paso y señalizar obligatoriamente con cintas de precaución y conos cualquier área de la empresa con trabajos de infraestructura incompletos.</li>
+                <li style="margin-bottom: 0.5rem;"><strong>Política de Orden y Aseo (5S / Housekeeping):</strong> Implementar inspecciones periódicas para garantizar que los pasillos y rutas de evacuación permanezcan 100% libres de obstáculos.</li>
+                <li><strong>Planificación de Cambios Físicos:</strong> Coordinar los traslados de oficina en horarios no laborales o fines de semana para entregar puestos completamente operativos y seguros.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>SENA CDMC - Centro de diseño y Manofactura del cuero - Seguridad y salud en el trabajo &copy; 2026</p>
+    </footer>
+
+</body>
+</html>

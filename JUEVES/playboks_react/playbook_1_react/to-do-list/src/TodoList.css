@@ -1,0 +1,98 @@
+/* Estilos del contenedor */
+.todo-container {
+  top: 0;
+  left: 0;
+  width: 60vw;
+  height: 100vh;
+  margin: 0;
+  padding: 25px;
+  border-radius: 0;
+  background-color: #f9f9f9;
+  box-shadow: none;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Título */
+.todo-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+
+/* Contenedor del campo de entrada y el botón */
+.todo-input-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+
+/* Estilo del campo de entrada */
+.todo-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+
+/* Botón Agregar tarea */
+.todo-container button {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+.todo-container button:hover {
+  background-color: #45a049;
+}
+
+
+/* Mensaje de tareas */
+.todo-container p {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Lista de tareas */
+.todo-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+.todo-container li {
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #eee;
+}
+
+
+/* Botón Eliminar */
+.todo-container li button {
+  background-color: transparent;
+  color: red;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.todo-container li button:hover {
+  color: darkred;
+}

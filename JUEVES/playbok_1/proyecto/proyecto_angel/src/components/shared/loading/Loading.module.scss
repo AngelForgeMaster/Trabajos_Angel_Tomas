@@ -1,0 +1,11 @@
+.content {
+    @apply flex flex-col items-center gap-2;
+}
+
+.fullContent {
+    @apply fixed inset-0 flex items-center justify-center z-50;
+}
+
+.spinner {
+    @apply animate-spin;
+}

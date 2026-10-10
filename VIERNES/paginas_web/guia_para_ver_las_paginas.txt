@@ -1,0 +1,29 @@
+
+**Estimada Profe**
+
+Espero que se encuentre muy bien.
+
+Con el fin de facilitar la revisión de la evidencia, adjunto el proyecto en un archivo comprimido denominado 
+`pagina_todos_los_temas.rar`. De esta manera, se conserva la estructura interna del directorio y las hojas de estilo CSS 
+se mantienen vinculadas correctamente a cada documento HTML.
+
+**Pasos para la visualización del proyecto:**
+
+1. **Descarga y Extracción:** Guarde el archivo `.rar` en su equipo, haga clic derecho sobre él y seleccione la opción 
+**"Extraer aquí"** (o "Extraer en pagina_todos_los_temas").
+
+2. **Visualización en Navegador:** Una vez extraída la carpeta, puede abrir directamente el archivo `index.html` 
+en cualquier navegador web (como Google Chrome o Edge) para navegar por todo el sitio a través del menú lateral.
+
+3. **Revisión de Código (Opcional):** Si desea inspeccionar el código fuente, 
+puede abrir la carpeta completa desde un editor de texto como Visual Studio Code y ejecutar la extensión *Live Server*.
+
+Agradezco de antemano su tiempo y retroalimentación.
+
+Atentamente,
+
+**Angel Quiñones**
+
+*Análisis y Desarrollo de Software (ADSO)*
+
+*Ficha 3229339*

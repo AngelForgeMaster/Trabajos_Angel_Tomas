@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segunda Clase - SST</title>
+    <link rel="stylesheet" href="estilos/estilos.css">
+</head>
+<body>
+
+    <!-- Barra de Navegación Lateral / Menú -->
+    <nav class="sidebar">
+        <div class="sidebar-titulo">
+            <span>SST - ADSO</span>
+        </div>
+        <ul class="sidebar-links">
+            <li><a href="index.html" class="link-nav">Inicio</a></li>
+            <li><a href="primera_clase.html" class="link-nav">Primera Clase</a></li>
+            <li><a href="segunda_clase.html" class="link-nav">Segunda Clase</a></li>
+            <li><a href="tercera_clase.html" class="link-nav">Tercera Clase</a></li>
+            <li><a href="comites.html" class="link-nav activo">Comités SST</a></li>
+        </ul>
+    </nav>
+
+    <!-- Encabezado -->
+    <header>
+        <h1>Segunda Clase</h1>
+        <h2>Seguridad y Salud en el Trabajo (SST)</h2>
+        <p><strong>Objetivo:</strong> Los aprendices identificarán y evaluarán los riesgos y peligros asociados a diversas situaciones vinculadas al proceso formativo de su programa, aplicando los conocimientos sobre la matriz de identificación y evaluación de peligros.</p>
+    </header>
+
+    <main>
+        <!-- Sección de Instrucciones y Pasos -->
+        <section class="seccion-pasos">
+            <h3>Metodología y Pasos a Seguir:</h3>
+            
+            <div class="bloque-contenido">
+                <h4>Paso 1: Identificación de Procesos</h4>
+                <p>Cada aprendiz debe identificar en su programa de formación las actividades y tareas principales que se realizan en el entorno laboral.</p>
+            </div>
+
+            <div class="bloque-contenido">
+                <h4>Paso 2: Análisis de Situaciones</h4>
+                <p>Identificar los peligros asociados a cada tarea y actividad del proceso productivo (mínimo entre 5 y 10 actividades).</p>
+            </div>
+
+            <div class="bloque-contenido">
+                <h4>Paso 3: Estructura de la Matriz de Peligros</h4>
+                <p>Completar los siguientes campos para cada situación analizada:</p>
+                <ul>
+                    <li><strong>Proceso:</strong> Descripción general del proceso donde ocurre la situación.</li>
+                    <li><strong>Actividad:</strong> Conjunto de acciones o tareas de un cargo (ej. Inspección de áreas, realización de informes).</li>
+                    <li><strong>Tarea:</strong> Pasos puntuales y específicos que componen la actividad (ej. Digitar datos en el sistema).</li>
+                    <li><strong>Zona:</strong> Lugar exacto donde se presenta el peligro.</li>
+                    <li><strong>Peligro:</strong> Descripción detallada del peligro identificado.</li>
+                    <li><strong>Clasificación:</strong> Naturaleza del peligro (físico, biológico, químico, biomecánico, etc.).</li>
+                    <li><strong>Efectos Posibles:</strong> Consecuencias potenciales o daños resultantes.</li>
+                    <li><strong>Medidas de Intervención:</strong> Propuestas concretas para mitigar o eliminar el riesgo.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Botón de retorno -->
+        <div class="contenedor-boton">
+            <a href="index.html" class="btn-volver">&larr; Volver al Inicio</a>
+        </div>
+    </main>
+
+    <!-- Sección de la Matriz de Riesgos -->
+        <section class="seccion-matriz">
+            <h3>Matriz de Identificación de Peligros y Valoración de Riesgos (ADSO)</h3>
+            <p class="subtitulo-matriz">Resultados de la matriz diligenciada para el entorno formativo y de desarrollo de software:</p>
+
+            <div class="contenedor-tabla">
+                <table class="tabla-riesgos">
+                    <thead>
+                        <tr>
+                            <th>Proceso / Zona</th>
+                            <th>Actividad y Tarea</th>
+                            <th>Peligro y Clasificación</th>
+                            <th>Efectos Posibles</th>
+                            <th>Medidas de Intervención</th>
+                            <th>EPP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Desarrollo de Software</strong><br><small>Sala de cómputo / Estudio</small></td>
+                            <td>Programación de aplicaciones web (React/Next.js)<br><em>Digitar código y uso de mouse</em></td>
+                            <td><span class="tag biomecanico">Biomecánico</span><br>Movimientos repetitivos en manos y muñecas</td>
+                            <td>Síndrome del túnel carpiano, tendinitis, dolor articular</td>
+                            <td>Teclado/mouse ergonómico, pausas activas, capacitación en higiene postural</td>
+                            <td>Reposa muñecas de gel</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Administración de DB</strong><br><small>Sala de cómputo / Estudio</small></td>
+                            <td>Diseño de esquemas PostgreSQL<br><em>Postura sedente prolongada</em></td>
+                            <td><span class="tag biomecanico">Biomecánico</span><br>Postura prolongada mantenida</td>
+                            <td>Lumbalgia, cervicalgia, espasmos musculares, fatiga</td>
+                            <td>Silla ergonómica ajustable, soporte de monitor, rotación de tareas</td>
+                            <td>Apoya pies</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Desarrollo de Software</strong><br><small>Sala de cómputo / Estudio</small></td>
+                            <td>Pruebas y depuración de código<br><em>Fijar vista en monitor</em></td>
+                            <td><span class="tag fisico">Físico</span><br>Iluminación / Fatiga visual</td>
+                            <td>Fatiga visual, cefalea, resequedad ocular</td>
+                            <td>Cortinas/persianas, pausas visuales (20-20-20), exames optométricos</td>
+                            <td>Lentes con filtro de luz azul</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Proceso Formativo</strong><br><small>Aula / Entorno virtual</small></td>
+                            <td>Entrega de evidencias<br><em>Fechas límite ajustadas</em></td>
+                            <td><span class="tag psicosocial">Psicosocial</span><br>Carga mental y demandas</td>
+                            <td>Estrés agudo, ansiedad, alteraciones del sueño</td>
+                            <td>Herramientas de gestión de proyectos, capacitación en manejo del estrés</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mantenimiento</strong><br><small>Sala de cómputo</small></td>
+                            <td>Conexión/desconexión de equipos<br><em>Manipulación de cables</em></td>
+                            <td><span class="tag seguridad">Condiciones de Seguridad</span><br>Eléctrico (baja tensión)</td>
+                            <td>Electrocución, quemaduras, fibrilación</td>
+                            <td>Reemplazo de cables defectuosos, multitomas certificadas, inspección visual</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Desplazamiento</strong><br><small>Centro SENA</small></td>
+                            <td>Movilidad entre aulas<br><em>Transitar por pasillos y escaleras</em></td>
+                            <td><span class="tag locativo">Locativo</span><br>Superficies irregulares/deslizantes</td>
+                            <td>Caídas, contusiones, fracturas, esguinces</td>
+                            <td>Cintas antideslizantes en escalones, señalización de pisos húmedos</td>
+                            <td>Calzado cerrado con suela de agarre</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        
+
+</body>
+</html>

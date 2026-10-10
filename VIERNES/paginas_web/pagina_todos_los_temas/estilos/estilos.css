@@ -1,0 +1,496 @@
+/* Ajuste global del body para dar espacio al panel lateral */
+/* Busca esta regla en tu estilos.css y reemplázala o actualízala */
+body {
+    background-color: #f2f7f4;
+    color: #2e4034;
+    padding: 30px 20px 30px 260px; /* El 260px al final le da el espacio a la derecha del menú */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Panel Lateral Fijo */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background-color: #ffffff;
+    border-right: 2px solid #bce3c5;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.04);
+    z-index: 1000;
+}
+
+.sidebar-titulo {
+    font-weight: bold;
+    color: #1e4d2b;
+    font-size: 1.2rem;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #d8ebd9;
+    text-align: center;
+}
+
+.sidebar-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-links a {
+    text-decoration: none;
+    color: #2e4034;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 6px;
+    display: block;
+    transition: all 0.25s ease;
+}
+
+.sidebar-links a:hover {
+    background-color: #e3f2e6;
+    color: #1e4d2b;
+    padding-left: 18px; /* Efecto de desplazamiento al pasar el mouse */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+
+header {
+    text-align: center;
+    background-color: #d8ebd9; 
+    border-left: 6px solid #1e4d2b; 
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+header h1 {
+    color: #1e4d2b; 
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+header h2 {
+    color: #3b7a57; 
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+header p {
+    color: #4a6352;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+
+main {
+    max-width: 800px;
+    width: 100%;
+}
+
+.contenedor-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.link-tarjeta {
+    text-decoration: none;
+    background-color: #ffffff;
+    border: 2px solid #bce3c5; 
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    display: block;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.link-tarjeta h3 {
+    color: #1e4d2b; 
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+
+.link-tarjeta p {
+    color: #55705e;
+    font-size: 0.95rem;
+}
+
+
+.link-tarjeta:hover {
+    background-color: #e3f2e6;
+    border-color: #1e4d2b; 
+    transform: translateY(-3px); 
+    box-shadow: 0 6px 15px rgba(30, 77, 43, 0.15);
+}
+
+/* Estilos para las vistas de Clases */
+.seccion-pasos {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+    border: 1px solid #bce3c5;
+}
+
+.seccion-pasos h3 {
+    color: #1e4d2b;
+    margin-bottom: 12px;
+}
+
+.seccion-pasos ul {
+    padding-left: 20px;
+    color: #3b5243;
+}
+
+.seccion-pasos li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Tarjeta detallada de problemas */
+.tarjeta-detalle {
+    background-color: #ffffff;
+    border: 2px solid #bce3c5;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.badge {
+    display: inline-block;
+    background-color: #d8ebd9;
+    color: #1e4d2b;
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.tarjeta-detalle h3 {
+    color: #1e4d2b;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.bloque-contenido {
+    margin-bottom: 18px;
+}
+
+.bloque-contenido h4 {
+    color: #2e593a;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.bloque-contenido ul {
+    padding-left: 20px;
+    color: #4a6352;
+}
+
+.bloque-contenido li {
+    margin-bottom: 6px;
+}
+
+.consecuencia {
+    background-color: #fcf4f4;
+    border-left: 4px solid #d9534f;
+    padding: 12px 15px;
+    border-radius: 4px;
+}
+
+.consecuencia h4 {
+    color: #a94442;
+}
+
+.solucion {
+    background-color: #f2f9f3;
+    border-left: 4px solid #1e4d2b;
+    padding: 12px 15px;
+    border-radius: 4px;
+}
+
+/* Botón de regreso */
+.contenedor-boton {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.btn-volver {
+    display: inline-block;
+    background-color: #1e4d2b;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: #3b7a57;
+}
+
+/* Estilos específicos para la tarjeta de RAEE */
+.lista-ejemplos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 8px;
+    list-style-type: square;
+}
+
+.subtitulo-solucion {
+    color: #1e4d2b;
+    font-size: 0.95rem;
+    margin: 10px 0 5px 0;
+    font-weight: bold;
+}
+
+/* Badge para diferenciar SST de Medio Ambiente */
+.badge.sst {
+    background-color: #e2f0d9;
+    color: #276a3c;
+    border: 1px solid #b2d8a8;
+}
+
+/* Estilos para el cuadro comparativo de jornadas */
+.contenedor-comparativo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.caja-jornada {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.caja-jornada.mal {
+    background-color: #fdf2f2;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.caja-jornada.bien {
+    background-color: #f0f9f1;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.icono-jornada {
+    font-size: 1.3rem;
+}
+
+/* Estilos adicionales específicos para la Segunda Clase */
+.seccion-pasos .bloque-contenido {
+    background-color: #f9fcf9;
+    border-left: 4px solid #3b7a57;
+    padding: 12px 16px;
+    margin-top: 15px;
+    border-radius: 0 8px 8px 0;
+}
+
+.seccion-pasos .bloque-contenido h4 {
+    color: #1e4d2b;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.seccion-pasos .bloque-contenido p {
+    color: #4a6352;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.seccion-pasos .bloque-contenido ul {
+    margin-top: 8px;
+}
+
+.seccion-pasos .bloque-contenido li {
+    margin-bottom: 5px;
+    font-size: 0.92rem;
+}
+
+/* Estilos para la Matriz de Riesgos */
+.seccion-matriz {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 2px solid #bce3c5;
+    margin-bottom: 30px;
+}
+
+.subtitulo-matriz {
+    color: #55705e;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.contenedor-tabla {
+    overflow-x: auto; /* Permite desplazamiento en pantallas pequeñas */
+}
+
+.tabla-riesgos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.tabla-riesgos th {
+    background-color: #1e4d2b;
+    color: #ffffff;
+    padding: 12px;
+    border: 1px solid #1e4d2b;
+}
+
+.tabla-riesgos td {
+    padding: 12px;
+    border: 1px solid #d8ebd9;
+    vertical-align: top;
+    color: #2e4034;
+}
+
+.tabla-riesgos tr:nth-child(even) {
+    background-color: #f9fcf9;
+}
+
+/* Badges de clasificación de peligro */
+.tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+}
+.tag.biomecanico { background-color: #e2f0d9; color: #1e4d2b; }
+.tag.fisico { background-color: #e0f2fe; color: #0369a1; }
+.tag.psicosocial { background-color: #fef3c7; color: #b45309; }
+.tag.seguridad { background-color: #fee2e2; color: #b91c1c; }
+.tag.locativo { background-color: #f3e8ff; color: #6b21a8; }
+
+/* Estilos para el Informe de la Tercera Clase */
+.info-portada {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px dashed #bce3c5;
+    font-size: 0.9rem;
+    color: #2e593a;
+}
+
+.seccion-informe {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px;
+    border: 2px solid #bce3c5;
+    margin-bottom: 30px;
+}
+
+.seccion-informe h3 {
+    color: #1e4d2b;
+    margin-bottom: 20px;
+}
+
+.grid-informe {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta-informe {
+    background-color: #f9fcf9;
+    border-radius: 8px;
+    padding: 18px;
+    border-left: 5px solid #3b7a57;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.tarjeta-informe h4 {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    color: #1e4d2b;
+}
+
+.tarjeta-informe ul {
+    padding-left: 18px;
+    color: #3b5243;
+    font-size: 0.92rem;
+}
+
+.tarjeta-informe li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Colores temáticos por borde */
+.tarjeta-informe.tecnico { border-left-color: #4a5568; }
+.tarjeta-informe.humano { border-left-color: #dd6b20; }
+.tarjeta-informe.regulacion { border-left-color: #3182ce; }
+.tarjeta-informe.ambiental { border-left-color: #38a169; }
+.tarjeta-informe.economica { border-left-color: #d69e2e; }
+.tarjeta-informe.salud { border-left-color: #e53e3e; }
+
+/* Estilos específicos para la sección de Comités SST */
+
+/* Estado activo en el menú lateral */
+.sidebar-links a.activo {
+    background-color: #1e4d2b;
+    color: #ffffff;
+}
+
+.sidebar-links a.activo:hover {
+    padding-left: 14px; /* Cancela el desplazamiento para el botón activo */
+}
+
+/* Colores identificadores para los comités */
+.tarjeta-informe.tecnico h4 {
+    color: #2b6cb0; /* Azul para COPASST */
+}
+
+.tarjeta-informe.humano h4 {
+    color: #c05621; /* Naranja/Cobre para Convivencia Laboral */
+}
+
+.tarjeta-informe.ambiental h4 {
+    color: #2f855a; /* Verde institucional para Brigada de Emergencias */
+}
+
+/* Ajustes de espacio para listas en los casos */
+.tarjeta-informe p {
+    font-size: 0.93rem;
+    color: #2e4034;
+    margin-bottom: 8px;
+    line-height: 1.45;
+}
+
+.tarjeta-informe strong {
+    color: #1e4d2b;
+}
