@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rural Agro - Fincas</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <header class="topbar">
+        <h1>🌱 Rural Agro</h1>
+        <button onclick="cerrarSesion()" class="btn-logout">Cerrar sesión</button>
+    </header>
+
+    <main class="contenido">
+        <a href="/static/dashboard.html" class="link-volver">← Volver al panel</a>
+
+        <div class="encabezado-seccion">
+            <h2>🌾 Fincas</h2>
+            <button id="btnMostrarForm" class="btn-primary btn-pequeno">+ Nueva finca</button>
+        </div>
+
+        <!-- Formulario de registro, oculto al inicio -->
+        <form id="formFinca" class="form-tarjeta oculto">
+            <div class="campo">
+                <label for="nombreFinca">Nombre de la finca</label>
+                <input type="text" id="nombreFinca" required>
+            </div>
+            <div class="campo">
+                <label for="ubicacionFinca">Ubicación</label>
+                <input type="text" id="ubicacionFinca" required>
+            </div>
+            <p id="mensajeErrorFinca" class="mensaje-error"></p>
+            <button type="submit" class="btn-primary">Guardar finca</button>
+        </form>
+
+        <p id="mensajeCarga">Cargando fincas...</p>
+        <div id="listaFincas" class="tarjetas"></div>
+    </main>
+
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/fincas.js"></script>
+</body>
+</html>

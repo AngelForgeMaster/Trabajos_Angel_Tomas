@@ -7,12 +7,13 @@ from app.database import Base
 class UsuarioModel(Base):
     __tablename__ = "usuarios"
 
-    iid_usuarios = Column(Integer, primary_key=True, index=True)
-    
-    nombre = Column("nombre_completo", String)  
-    email = Column(String, unique=True, index=True)
-    password = Column(String)
-    rol = Column(String)
+    id_usuarios = Column(Integer, primary_key=True, index=True)
+
+    nombre = Column("nombre_usuarios", String)
+    apellido = Column("apellido_usuarios", String)
+    email = Column("email_usuarios", String, unique=True, index=True)
+    password = Column("contrasenia_usuarios", String)
+    rol = Column("rol_usuarios", String)
 
     # Relación: Un usuario tiene muchas fincas
     fincas = relationship("FincaModel", back_populates="usuario")

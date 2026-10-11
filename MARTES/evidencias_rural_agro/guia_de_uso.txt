@@ -1,0 +1,68 @@
+http://127.0.0.1:8000/static/index.html (NOTA: Aca cambia unicamente la direccion ip y la contraseña del .env)
+uvicorn app.main:app --reload (con esto iniciamos el proyecto)
+admin@ruralagro.com / admin123 (con estos datos accedemos al backend)
+
+El plan completo (9 pasos)
+Estructura de carpetas — crear static/ con css/, js/, y las páginas HTML
+index.html + CSS base — el esqueleto visual (login)
+Conectar el login al backend — JS que llama a /login, guarda el token
+Proteger páginas — que si no hay token, te mande al login
+Dashboard — página principal después de iniciar sesión
+Listar fincas — pedir /fincas/ y pintarlas en pantalla
+Crear finca — formulario que llama a POST /fincas/ (solo admin)
+Parcelas de una finca — listar y crear
+Cultivos de una parcela — listar y crear
+
+¡Hola, Ángel! Es muy sencillo. Como el repositorio ya está configurado y vinculado con GitHub, el proceso de actualización toma solo unos segundos.
+
+Aquí tienes el paso a paso exacto para subir tus nuevos cambios:
+
+---
+
+### 🛠️ Paso a paso para actualizar GitHub:
+
+1. **Abrir la terminal en tu carpeta:** Paso 1.
+Abre Visual Studio Code en la carpeta `Trabajos_Angel_Tomas` y asegúrate de estar en la **Terminal** (puedes usar el atajo `Ctrl + Shift + ~` si no la ves).
+
+
+2. **Preparar los nuevos archivos y cambios:** Paso 2.
+Ejecuta el siguiente comando para poner todos los archivos modificados o creados en la lista de espera:
+
+```bash
+git add .
+
+```
+
+
+3. **Guardar una nota del avance (Commit):** Paso 3.
+Crea un punto de guardado escribiendo un mensaje breve que describa lo que agregaste o modificaste hoy (por ejemplo: *'Actualización de evidencias del martes'*):
+
+```bash
+git commit -m "Nuevos avances y trabajos agregados"
+
+```
+
+
+4. **Subir los cambios a GitHub:** Paso 4.
+Envía las novedades a tu repositorio en la nube:
+
+```bash
+git push origin main
+
+```
+
+
+---
+
+### 💡 ¿Cómo confirmar que todo se subió bien?
+
+Una vez ejecutado el `git push`, puedes escribir este comando rápido para verificar que el entorno quedó completamente limpio y actualizado:
+
+```bash
+git status
+
+```
+
+Si la terminal responde **`nothing to commit, working tree clean`**, ¡significa que tus cambios ya están totalmente respaldados en GitHub y visibles para tus compañeros!
+
+¿Te apareció algún mensaje o alerta al ejecutar los comandos? Escríbeme si necesitas confirmar algo.

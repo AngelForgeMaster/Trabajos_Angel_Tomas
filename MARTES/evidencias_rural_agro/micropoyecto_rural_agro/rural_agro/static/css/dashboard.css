@@ -1,0 +1,134 @@
+.dashboard-body {
+    background: #f4f7f5;
+    display: block;
+    min-height: 100vh;
+}
+
+.topbar {
+    background: #1b4332;
+    color: white;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar h1 {
+    font-size: 20px;
+}
+
+.btn-logout {
+    background: transparent;
+    border: 1.5px solid white;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.btn-logout:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.contenido {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+.contenido h2 {
+    color: #1b4332;
+    margin-bottom: 8px;
+}
+
+.contenido p {
+    color: #6c757d;
+    margin-bottom: 28px;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: transform 0.15s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-3px);
+}
+
+.tarjeta h3 {
+    color: #1b4332;
+    margin-bottom: 6px;
+}
+
+.tarjeta p {
+    color: #6c757d;
+    font-size: 14px;
+    margin: 0;
+}
+
+.link-volver {
+    display: inline-block;
+    color: #2d6a4f;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.link-volver:hover {
+    text-decoration: underline;
+}
+
+.encabezado-seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn-pequeno {
+    width: auto;
+    padding: 10px 18px;
+    font-size: 13px;
+}
+
+.form-tarjeta {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    margin-bottom: 24px;
+    max-width: 400px;
+}
+
+.oculto {
+    display: none;
+}
+
+.tarjeta-finca {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.tarjeta-finca h3 {
+    color: #1b4332;
+    margin-bottom: 6px;
+}
+
+.tarjeta-finca p {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
