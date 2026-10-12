@@ -1,0 +1,24 @@
+1. Módulo de Cosecha y Producción
+Actualmente el cultivo muestra cuándo se sembró y su estado, pero falta registrar el final del ciclo:
+
+Fecha estimada y real de cosecha: Para saber exactamente cuándo se recogerá el fruto.
+
+Rendimiento final: Cantidad real obtenida en kilogramos o toneladas para comparar la semilla invertida frente a la producción obtenida.
+
+2. Control de Insumos y Riego
+En el campo, el mantenimiento es vital. Podrías añadir un registro secundario por cultivo para:
+
+Fertilizantes y Abonos: Registrar qué productos se le han aplicado, las cantidades y los costos.
+
+Control de Riego / Plagas: Notas o alertas sobre tratamientos fitosanitarios aplicados a la parcela.
+
+3. Finanzas: Costos vs. Ganancias
+Cálculo de rentabilidad: Cruzar el precio de la semilla y los insumos con el valor de venta de la cosecha para mostrarle al agricultor si la parcela le está dejando ganancias o pérdidas.
+
+Gastos operativos: Registrar mano de obra o alquiler de maquinaria por finca.
+
+4. Bitácora o Diario de Campo (Notas)
+Un espacio de historial donde el agricultor pueda escribir notas rápidas o incidencias del día (ej. "Llovió demasiado esta semana, la parcela 2 presenta encharcamiento" o "Se detectó plaga leve de insectos").
+
+5. Dashboard con Estadísticas Generales
+Una vista de resumen en el inicio que muestre gráficos sencillos: cantidad total de hectáreas o fincas activas, cultivos más sembrados y el estado general de los proyectos agrícolas en tiempo real.

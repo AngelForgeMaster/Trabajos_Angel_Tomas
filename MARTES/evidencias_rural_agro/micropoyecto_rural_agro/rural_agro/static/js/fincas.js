@@ -51,10 +51,26 @@ cargarFincas();
 // --- Mostrar / ocultar formulario (para crear) ---
 const btnMostrarForm = document.getElementById("btnMostrarForm");
 btnMostrarForm.addEventListener("click", () => {
-    fincaEditandoId = null; // nos aseguramos de que no quede en "modo edición"
+    fincaEditandoId = null; // Modo creación
     formFinca.reset();
+    
+    // Limpiar las etiquetas de coordenadas y el marcador anterior
+    document.getElementById('latSeleccionada').textContent = "—";
+    document.getElementById('lngSeleccionada').textContent = "—";
+    latSeleccionada = null;
+    lngSeleccionada = null;
+    if (marcador && mapa) {
+        mapa.removeLayer(marcador);
+        marcador = null;
+    }
+
     document.querySelector("#formFinca button[type=submit]").textContent = "Guardar finca";
     formFinca.classList.toggle("oculto");
+
+    // ¡Aquí llamamos a la función del Bloque 1 para que pinte el mapa!
+    if (!formFinca.classList.contains("oculto")) {
+        inicializarMapaFinca();
+    }
 });
 
 // --- Entrar en modo edición ---
@@ -104,6 +120,12 @@ formFinca.addEventListener("submit", async (evento) => {
 
     // En edición, el backend no necesita usuarios_id de nuevo ni coordenada_fincas obligatoriamente
     // (FincaUpdate solo exige lo que mandes), pero en creación sí es obligatorio.
+    // Validación opcional: verificar que haya seleccionado un punto en el mapa al crear
+    if (!esEdicion && (!latSeleccionada || !lngSeleccionada)) {
+        mensajeErrorFinca.textContent = "Por favor haz clic en el mapa para marcar la ubicación de la finca.";
+        return;
+    }
+
     const datosFinca = esEdicion
         ? {
             nombre_fincas: document.getElementById("nombreFinca").value,
@@ -112,7 +134,11 @@ formFinca.addEventListener("submit", async (evento) => {
         : {
             nombre_fincas: document.getElementById("nombreFinca").value,
             ubicacion_fincas: document.getElementById("ubicacionFinca").value,
-            coordenada_fincas: {},
+            // ¡Aquí mandamos las coordenadas reales que capturó Leaflet!
+            coordenada_fincas: {
+                lat: latSeleccionada,
+                lng: lngSeleccionada
+            },
             usuarios_id: obtenerUsuarioIdDelToken()
           };
 
@@ -144,3 +170,41 @@ formFinca.addEventListener("submit", async (evento) => {
         mensajeErrorFinca.textContent = "Error de conexión con el servidor.";
     }
 });
+
+// Variables globales para el mapa y las coordenadas
+let mapa = null;
+let marcador = null;
+let latSeleccionada = null;
+let lngSeleccionada = null;
+
+function inicializarMapaFinca() {
+    // Si el mapa ya se había creado antes, evitamos duplicarlo
+    if (mapa) {
+        setTimeout(() => mapa.invalidateSize(), 100);
+        return;
+    }
+
+    // Centrado inicial (ej. Coordenadas de referencia, puedes ajustarlas)
+    mapa = L.map('mapaFinca').setView([6.2442, -75.5812], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+    }).addTo(mapa);
+
+    // Evento al hacer clic en el mapa
+    mapa.on('click', function(e) {
+        latSeleccionada = e.latlng.lat;
+        lngSeleccionada = e.latlng.lng;
+
+        // Mostrar los números en pantalla
+        document.getElementById('latSeleccionada').textContent = latSeleccionada.toFixed(6);
+        document.getElementById('lngSeleccionada').textContent = lngSeleccionada.toFixed(6);
+
+        // Poner o mover el marcador rojo
+        if (marcador) {
+            mapa.removeLayer(marcador);
+        }
+        marcador = L.marker([latSeleccionada, lngSeleccionada]).addTo(mapa);
+    });
+}
