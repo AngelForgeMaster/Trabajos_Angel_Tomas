@@ -29,3 +29,26 @@ def registrar_parcela(
 ):
     """Crea una nueva parcela delimitada con sus coordenadas y área física."""
     return crud.crear_parcela(db, parcela)
+
+@router.put("/{parcela_id}", response_model=schemas.ParcelaResponse)
+def editar_parcela(
+    parcela_id: int,
+    parcela: schemas.ParcelaUpdate,
+    db: Session = Depends(get_db),
+    usuario_actual: UsuarioModel = Depends(obtener_usuario_actual)
+):
+    parcela_actualizada = crud.actualizar_parcela(db, parcela_id, parcela)
+    if not parcela_actualizada:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Parcela no encontrada.")
+    return parcela_actualizada
+
+
+@router.delete("/{parcela_id}", status_code=status.HTTP_204_NO_CONTENT)
+def borrar_parcela(
+    parcela_id: int,
+    db: Session = Depends(get_db),
+    usuario_actual: UsuarioModel = Depends(obtener_usuario_actual)
+):
+    parcela_eliminada = crud.eliminar_parcela(db, parcela_id)
+    if not parcela_eliminada:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Parcela no encontrada.")

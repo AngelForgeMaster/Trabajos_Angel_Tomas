@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rural Agro - Parcelas</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <header class="topbar">
+        <h1>🌱 Rural Agro</h1>
+        <button onclick="cerrarSesion()" class="btn-logout">Cerrar sesión</button>
+    </header>
+
+    <main class="contenido">
+        <a href="/static/fincas.html" class="link-volver">← Volver a fincas</a>
+
+        <div class="encabezado-seccion">
+            <h2 id="tituloFinca">🌿 Parcelas</h2>
+            <button id="btnMostrarForm" class="btn-primary btn-pequeno">+ Nueva parcela</button>
+        </div>
+
+        <form id="formParcela" class="form-tarjeta oculto">
+            <div class="campo">
+                <label for="nombreParcela">Nombre de la parcela</label>
+                <input type="text" id="nombreParcela" required>
+            </div>
+            <div class="campo">
+                <label for="areaParcela">Área (hectáreas)</label>
+                <input type="number" id="areaParcela" step="0.01" min="0" required>
+            </div>
+            <p id="mensajeErrorParcela" class="mensaje-error"></p>
+            <button type="submit" class="btn-primary">Guardar parcela</button>
+        </form>
+
+        <p id="mensajeCarga">Cargando parcelas...</p>
+        <div id="listaParcelas" class="tarjetas"></div>
+    </main>
+
+    <script src="/static/js/config.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/parcelas.js"></script>
+</body>
+</html>

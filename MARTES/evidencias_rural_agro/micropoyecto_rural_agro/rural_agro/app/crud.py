@@ -60,3 +60,65 @@ def crear_cultivo(db: Session, cultivo: CultivoCreate):
     db.commit()
     db.refresh(nuevo_cultivo)
     return nuevo_cultivo
+
+# --- Actualizar y eliminar FINCAS ---
+def actualizar_finca(db: Session, finca_id: int, finca: FincaUpdate):
+    finca_db = db.query(FincaModel).filter(FincaModel.id_fincas == finca_id).first()
+    if not finca_db:
+        return None
+    datos_nuevos = finca.model_dump(exclude_unset=True)  # solo los campos que sí mandaron
+    for campo, valor in datos_nuevos.items():
+        setattr(finca_db, campo, valor)
+    db.commit()
+    db.refresh(finca_db)
+    return finca_db
+
+def eliminar_finca(db: Session, finca_id: int):
+    finca_db = db.query(FincaModel).filter(FincaModel.id_fincas == finca_id).first()
+    if not finca_db:
+        return None
+    db.delete(finca_db)
+    db.commit()
+    return finca_db
+
+
+# --- Actualizar y eliminar PARCELAS ---
+def actualizar_parcela(db: Session, parcela_id: int, parcela: ParcelaUpdate):
+    parcela_db = db.query(ParcelaModel).filter(ParcelaModel.id_parcelas == parcela_id).first()
+    if not parcela_db:
+        return None
+    datos_nuevos = parcela.model_dump(exclude_unset=True)
+    for campo, valor in datos_nuevos.items():
+        setattr(parcela_db, campo, valor)
+    db.commit()
+    db.refresh(parcela_db)
+    return parcela_db
+
+def eliminar_parcela(db: Session, parcela_id: int):
+    parcela_db = db.query(ParcelaModel).filter(ParcelaModel.id_parcelas == parcela_id).first()
+    if not parcela_db:
+        return None
+    db.delete(parcela_db)
+    db.commit()
+    return parcela_db
+
+
+# --- Actualizar y eliminar CULTIVOS ---
+def actualizar_cultivo(db: Session, cultivo_id: int, cultivo: CultivoUpdate):
+    cultivo_db = db.query(CultivoModel).filter(CultivoModel.id_cultivos == cultivo_id).first()
+    if not cultivo_db:
+        return None
+    datos_nuevos = cultivo.model_dump(exclude_unset=True)
+    for campo, valor in datos_nuevos.items():
+        setattr(cultivo_db, campo, valor)
+    db.commit()
+    db.refresh(cultivo_db)
+    return cultivo_db
+
+def eliminar_cultivo(db: Session, cultivo_id: int):
+    cultivo_db = db.query(CultivoModel).filter(CultivoModel.id_cultivos == cultivo_id).first()
+    if not cultivo_db:
+        return None
+    db.delete(cultivo_db)
+    db.commit()
+    return cultivo_db

@@ -29,3 +29,26 @@ def registrar_cultivo(
 ):
     """Registra la siembra de un nuevo cultivo con fechas, variedad y costos de semilla."""
     return crud.crear_cultivo(db, cultivo)
+
+@router.put("/{cultivo_id}", response_model=schemas.CultivoResponse)
+def editar_cultivo(
+    cultivo_id: int,
+    cultivo: schemas.CultivoUpdate,
+    db: Session = Depends(get_db),
+    usuario_actual: UsuarioModel = Depends(obtener_usuario_actual)
+):
+    cultivo_actualizado = crud.actualizar_cultivo(db, cultivo_id, cultivo)
+    if not cultivo_actualizado:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Cultivo no encontrado.")
+    return cultivo_actualizado
+
+
+@router.delete("/{cultivo_id}", status_code=status.HTTP_204_NO_CONTENT)
+def borrar_cultivo(
+    cultivo_id: int,
+    db: Session = Depends(get_db),
+    usuario_actual: UsuarioModel = Depends(obtener_usuario_actual)
+):
+    cultivo_eliminado = crud.eliminar_cultivo(db, cultivo_id)
+    if not cultivo_eliminado:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Cultivo no encontrado.")

@@ -19,7 +19,7 @@ def registrar_finca(
     db: Session = Depends(get_db),
     usuario_actual: UsuarioModel = Depends(obtener_usuario_actual)
 ):
-    if usuario_actual.rol != "admin":
+    if usuario_actual.rol != "administrador":
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN, 
             detail="Permisos insuficientes para registrar fincas en Rural Agro."
@@ -40,3 +40,30 @@ def obtener_parcelas_de_finca(
             detail="No se encontraron parcelas asociadas a la finca especificada."
         )
     return parcelas
+
+@router.put("/{finca_id}", response_model=schemas.FincaResponse)
+def editar_finca(
+    finca_id: int,
+    finca: schemas.FincaUpdate,
+    db: Session = Depends(get_db),
+    usuario_actual: UsuarioModel = Depends(obtener_usuario_actual)
+):
+    if usuario_actual.rol != "administrador":
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Permisos insuficientes.")
+    finca_actualizada = crud.actualizar_finca(db, finca_id, finca)
+    if not finca_actualizada:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Finca no encontrada.")
+    return finca_actualizada
+
+
+@router.delete("/{finca_id}", status_code=status.HTTP_204_NO_CONTENT)
+def borrar_finca(
+    finca_id: int,
+    db: Session = Depends(get_db),
+    usuario_actual: UsuarioModel = Depends(obtener_usuario_actual)
+):
+    if usuario_actual.rol != "administrador":
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Permisos insuficientes.")
+    finca_eliminada = crud.eliminar_finca(db, finca_id)
+    if not finca_eliminada:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Finca no encontrada.")

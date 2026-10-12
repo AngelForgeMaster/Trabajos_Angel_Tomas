@@ -27,3 +27,20 @@ async function fetchConToken(url, opciones = {}) {
     }
     return respuesta;
 }
+
+// Decodifica el "payload" del JWT (la parte del medio) para leer datos como el rol o el email.
+// OJO: esto NO verifica la firma, solo lee la información. La verificación real la hace el backend.
+function decodificarToken() {
+    try {
+        const payload = token.split(".")[1];
+        return JSON.parse(atob(payload));
+    } catch (error) {
+        return null;
+    }
+}
+
+// Devuelve el id_usuarios guardado dentro del token
+function obtenerUsuarioIdDelToken() {
+    const datos = decodificarToken();
+    return datos ? datos.id_usuarios : null;
+}

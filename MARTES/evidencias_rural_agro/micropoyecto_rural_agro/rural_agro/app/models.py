@@ -31,7 +31,7 @@ class FincaModel(Base):
 
     # Relaciones ORM
     usuario = relationship("UsuarioModel", back_populates="fincas")
-    parcelas = relationship("ParcelaModel", back_populates="finca")
+    parcelas = relationship("ParcelaModel", back_populates="finca", passive_deletes=True)
 
 
 # 3. MODELO PARCELAS  public.parcelas
@@ -46,7 +46,7 @@ class ParcelaModel(Base):
 
     # Relaciones ORM
     finca = relationship("FincaModel", back_populates="parcelas")
-    cultivos = relationship("CultivoModel", back_populates="parcela")
+    cultivos = relationship("CultivoModel", back_populates="parcela", passive_deletes=True)
 
 
 # 4. MODELO CULTIVOS  public.cultivos
@@ -61,7 +61,7 @@ class CultivoModel(Base):
     cantidad_semilla = Column(Numeric(12, 2), nullable=False)
     precio_semilla = Column(Numeric(12, 2), nullable=False)
     fecha_siembra = Column(Date, nullable=False)
-    fecha_estimada_cosecha = Column(Date, nullable=True)
+    fecha_estimada_cosecha = Column("fecha_estimada_cosecha_cultivos", Date, nullable=True)
     estado_siembra = Column(String(30), default="en crecimiento", nullable=False)
 
     # Relación ORM

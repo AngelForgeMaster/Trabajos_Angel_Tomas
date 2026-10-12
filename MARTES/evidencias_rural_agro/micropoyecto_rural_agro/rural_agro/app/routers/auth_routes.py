@@ -22,5 +22,5 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
         )
 
     # Inyectamos el email y el rol dentro del payload del token
-    token_acceso = crear_token_acceso(data={"sub": usuario.email, "rol": usuario.rol})
+    token_acceso = crear_token_acceso(data={"sub": usuario.email, "rol": usuario.rol, "id_usuarios": usuario.id_usuarios})
     return {"access_token": token_acceso, "token_type": "bearer"}

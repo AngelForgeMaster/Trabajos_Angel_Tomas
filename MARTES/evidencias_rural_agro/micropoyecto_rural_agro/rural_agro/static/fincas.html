@@ -6,6 +6,7 @@
     <title>Rural Agro - Fincas</title>
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 </head>
 <body class="dashboard-body">
 
@@ -24,17 +25,24 @@
 
         <!-- Formulario de registro, oculto al inicio -->
         <form id="formFinca" class="form-tarjeta oculto">
-            <div class="campo">
-                <label for="nombreFinca">Nombre de la finca</label>
-                <input type="text" id="nombreFinca" required>
-            </div>
-            <div class="campo">
-                <label for="ubicacionFinca">Ubicación</label>
-                <input type="text" id="ubicacionFinca" required>
-            </div>
-            <p id="mensajeErrorFinca" class="mensaje-error"></p>
-            <button type="submit" class="btn-primary">Guardar finca</button>
-        </form>
+    <div class="campo">
+        <label for="nombreFinca">Nombre de la finca</label>
+        <input type="text" id="nombreFinca" required>
+    </div>
+    <div class="campo">
+        <label for="ubicacionFinca">Ubicación</label>
+        <input type="text" id="ubicacionFinca" required>
+    </div>
+
+    <div class="campo">
+        <label>Ubicación en el mapa (haz clic para marcar)</label>
+        <div id="mapaFinca" class="mapa-finca"></div>
+        <p class="ayuda-mapa">Latitud: <span id="latSeleccionada">—</span> | Longitud: <span id="lngSeleccionada">—</span></p>
+    </div>
+
+    <p id="mensajeErrorFinca" class="mensaje-error"></p>
+    <button type="submit" class="btn-primary">Guardar finca</button>
+</form>
 
         <p id="mensajeCarga">Cargando fincas...</p>
         <div id="listaFincas" class="tarjetas"></div>
@@ -43,5 +51,6 @@
     <script src="/static/js/config.js"></script>
     <script src="/static/js/auth.js"></script>
     <script src="/static/js/fincas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </body>
 </html>
