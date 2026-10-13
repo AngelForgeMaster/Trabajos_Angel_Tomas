@@ -1,0 +1,16 @@
+Antes de que alguno de mis compañeros instale algun playbook me gustaria aclarar algunas cosas
+
+1. yo utilice tegnologias diferentes: Walver utiliza js para incluso moverse entre pestañas hoy en dia con cosas 
+como el (tabs) ya no es necesario a si que lo que yo hice fue ajustar el codigo de walver que estaba en js 
+y ajustarlo a lo que yo ya se por que yo estoy desarrollando mi propia app 
+
+¿Funciona de la misma manera? R1/ Si funciona de la misma manera incluso mejor por que es mas moderno
+
+¿Sigue el mismo codigo de walver? R2/ Si sigue el mismo codigo de walver todo lo que yo hice fue adaptar el codigo
+de walver a lo que yo ya se y mejorarlo para evitar tantos fallos
+
+¿Por que opte por hacerlo a si? R3/ Por que para mi es mas facil por que ya se trabajar con tsx y por que es mas moderno
+me evitaba mas problemas con el codigo
+
+Si algun compañero decido instalar y usar mi version que lo haga bajo su propio riesgo
+normalmente walver solo revisa que la app funcione correctamente con npx expo start y mi app funciona correctamente
