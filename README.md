@@ -78,3 +78,42 @@ Si solo necesitas un archivo individual:
 1. Navega hasta el archivo que deseas descargar y haz clic sobre él para abrirlo en GitHub.
 2. En la esquina superior derecha de la vista previa del archivo, haz clic en el botón **`Download`** (o en el ícono de la flecha hacia abajo ⬇️).
 3. El archivo se guardará directamente en tu carpeta de descargas.
+
+---
+
+## 🤝 Guía para Colaboradores: ¿Cómo subir tus cambios al proyecto?
+
+Si ya eres colaborador oficial del repositorio y vas a realizar entregas o ajustes, elige el método según cómo estés trabajando:
+
+---
+
+### 🟢 Método 1: Trabajo con Terminal y Git (Recomendado para programar)
+
+> **⚠️ Requisito importante:** Para usar este método **debes clonar la estructura de carpetas completa en tu PC**.
+> 
+> **¿Por qué?** Git no gestiona carpetas individuales de forma aislada; controla el historial de versiones, autoría y permisos a nivel de todo el proyecto. Al clonar la estructura completa, Git sabrá exactamente qué modificaste y solo actualizará tus archivos sin tocar el trabajo de los demás.
+
+#### Paso a paso con comandos:
+
+1. **`git pull origin main`**
+   * *¿Qué hace?* Descarga y fusiona los últimos cambios subidos por tus compañeros para asegurarte de tener la versión más reciente antes de trabajar.
+2. **`git add .`**
+   * *¿Qué hace?* Agrupa y prepara todos los archivos que creaste, modificaste o eliminaste para ponerlos en la "lista de espera" de subida.
+3. **`git commit -m "Descripción breve de tus cambios"`**
+   * *¿Qué hace?* Crea un punto de guardado local con un mensaje claro que explica qué trabajo estás entregando (por ejemplo: `git commit -m "Ajustes en el módulo sena_mvc por Tomás"`).
+4. **`git push origin main`**
+   * *¿Qué hace?* Envía de forma segura tus commits locales a GitHub para que queden públicos e integrados al proyecto principal.
+
+---
+
+### 🟡 Método 2: Subir cambios directo desde la Web (Si solo bajaste una carpeta)
+
+Si no clonaste el proyecto completo y solo descargaste una carpeta específica (como `sena_mvc` vía ZIP), **no podrás usar comandos de Git en tu terminal**. En su lugar, puedes subir tus cambios directamente desde el navegador:
+
+1. Entra a la carpeta correspondiente en GitHub desde tu navegador (por ejemplo: `MARTES/sena_mvc`).
+2. En la esquina superior derecha de la lista de archivos, haz clic en el botón **`Add file`** ➔ **`Upload files`**.
+3. Arrastra los archivos o carpetas que modificaste desde tu equipo.
+4. En la parte inferior, escribe un mensaje descriptivo en la casilla del commit (ejemplo: *"Ajustes en el frontend por Tomás"*).
+5. Haz clic en el botón verde **`Commit changes`**.
+
+¡Y listo! Tus cambios se guardarán automáticamente en esa carpeta sin necesidad de tener todo el repositorio sincronizado en tu computadora.
