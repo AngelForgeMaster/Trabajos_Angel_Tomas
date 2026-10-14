@@ -8,3 +8,4 @@ export const deleteUsers  = (id)       => api.delete(`/usuarios/${id}`);
 // ── Nuevo en Clase 4 ───────────────────────────────────────────────
 export const getMe        = ()         => api.get("/usuarios/me");
 export const getUsuario   = (id)       => api.get(`/usuarios/${id}`);
+

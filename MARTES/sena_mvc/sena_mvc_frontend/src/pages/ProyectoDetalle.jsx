@@ -1,34 +1,33 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProyecto, asignarUsuario } from "../api/projects";
+import { getProyecto, asignarUsuario, quitarUsuario } from "../api/projects";
 import { getUers } from "../api/users";
-import Layout from "../components/Layout";
 
 export default function ProyectoDetalle() {
-
-  const { id }                   = useParams();
-  const [proyecto,  setProyecto] = useState(null);
-  const [todosUsr,  setTodosUsr] = useState([]);
-  const [seleccionado, setSel]   = useState("");
-  const [error,     setError]    = useState("");
-  const [mensaje,   setMensaje]  = useState("");
+  const { id }                     = useParams();
+  const [proyecto,    setProyecto] = useState(null);
+  const [todosUsr,    setTodosUsr] = useState([]);
+  const [seleccionado, setSel]     = useState("");
+  const [error,       setError]    = useState("");
+  const [mensaje,     setMensaje]  = useState("");
 
   const token   = localStorage.getItem("token");
   const payload = token ? JSON.parse(atob(token.split(".")[1])) : {};
   const esAdmin = payload.rol === "admin";
 
+  // ... resto igual
+
   useEffect(() => { cargarDatos(); }, [id]);
 
   const cargarDatos = async () => {
     try {
-      // getProyecto devuelve { id, nombre, descripcion, empleados[] }
-      // gracias a ProyectoDetalleResponse en el backend (Actividad 6)
-      const [resProyecto, resUsuarios] = await Promise.all([
-        getProyecto(id),
-        getUers()
-      ]);
+      const resProyecto = await getProyecto(id);
       setProyecto(resProyecto.data);
-      setTodosUsr(resUsuarios.data);
+
+      if (esAdmin) {
+        const resUsuarios = await getUers();
+        setTodosUsr(resUsuarios.data);
+      }
     } catch { setError("Error al cargar datos."); }
   };
 
@@ -36,29 +35,37 @@ export default function ProyectoDetalle() {
     if (!seleccionado) return;
     try {
       const res = await asignarUsuario(id, seleccionado);
-      // Agrega el usuario asignado a la lista local sin recargar
       setProyecto(prev => ({
         ...prev,
         empleados: [...prev.empleados, res.data]
       }));
       setSel("");
-      setMensaje("Usuario asignado correctamente.");
+      setMensaje("✅ Usuario asignado correctamente.");
+      setError("");
     } catch { setError("Error al asignar usuario."); }
   };
 
-  // Guard: mientras el proyecto carga, proyecto es null
-  if (!proyecto) {
-    return <Layout><p>Cargando...</p></Layout>;
-  }
+  const handleQuitar = async (usuarioId) => {
+    try {
+      await quitarUsuario(id, usuarioId);
+      setProyecto(prev => ({
+        ...prev,
+        empleados: prev.empleados.filter(e => e.id !== usuarioId)
+      }));
+      setMensaje("✅ Usuario desasignado correctamente.");
+      setError("");
+    } catch { setError("Error al quitar usuario."); }
+  };
 
-  // Usuarios que aún no están asignados a este proyecto
+  if (!proyecto) return <p className="p-4">Cargando...</p>;
+
   const asignados   = proyecto.empleados;
   const disponibles = todosUsr.filter(
     u => !asignados.some(e => e.id === u.id)
   );
 
   return (
-    <Layout>
+    <div className="container-fluid py-3">
       <h2>{proyecto.nombre}</h2>
       <p className="text-muted">{proyecto.descripcion}</p>
 
@@ -66,11 +73,21 @@ export default function ProyectoDetalle() {
       {asignados.length === 0 && (
         <p className="text-muted">Sin empleados asignados.</p>
       )}
-      {asignados.map(e => (
-        <span key={e.id} className="badge bg-primary me-2 mb-1">
-          {e.nombre}
-        </span>
-      ))}
+      <div className="d-flex flex-wrap gap-2">
+        {asignados.map(e => (
+          <span key={e.id} className="badge bg-primary d-flex align-items-center gap-1 fs-6">
+            {e.nombre}
+            {esAdmin && (
+              <button
+                className="btn-close btn-close-white"
+                style={{ fontSize: "0.6rem" }}
+                title={`Quitar a ${e.nombre}`}
+                onClick={() => handleQuitar(e.id)}
+              />
+            )}
+          </span>
+        ))}
+      </div>
 
       {esAdmin && (
         <div className="mt-4">
@@ -96,6 +113,6 @@ export default function ProyectoDetalle() {
 
       {mensaje && <div className="alert alert-success mt-3">{mensaje}</div>}
       {error   && <div className="alert alert-danger  mt-3">{error}</div>}
-    </Layout>
+    </div>
   );
 }

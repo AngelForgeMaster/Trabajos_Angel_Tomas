@@ -1,36 +1,32 @@
-from sqlalchemy.ext.asyncio import AsyncSession 
-from sqlalchemy.future import select 
-from app import schemas 
-from app.models import UsuarioModel, DepartamentoModel, ProyectoModel, DireccionModel 
-from app.security import encriptar_password
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.future import select
 from sqlalchemy.orm import selectinload
+from app import schemas
+from app.models import UsuarioModel, DepartamentoModel, ProyectoModel, DireccionModel, usuario_proyecto
+from app.security import encriptar_password
  
 # --- USUARIOS --- 
 async def obtener_usuarios(db: AsyncSession): 
-    result = await db.execute(select(UsuarioModel)) 
+    result = await db.execute( 
+        select(UsuarioModel).options( 
+            selectinload(UsuarioModel.departamento).selectinload( 
+                DepartamentoModel.direccion 
+            ), 
+            selectinload(UsuarioModel.proyectos) 
+        ) 
+    ) 
     return result.scalars().all() 
  
-async def obtener_proyecto_por_id(
-    db: AsyncSession,
-    proyecto_id: int
-):
-    result = await db.execute(
-        select(ProyectoModel).options(
-            selectinload(ProyectoModel.empleados).selectinload(
-                UsuarioModel.departamento
-            ).selectinload(
-                DepartamentoModel.direccion
-            ),
-            selectinload(ProyectoModel.empleados).selectinload(
-                UsuarioModel.proyectos
-            )
-        ).filter(
-            ProyectoModel.id == proyecto_id
-        )
-    )
-
-    return result.scalars().first()
- 
+async def obtener_usuario_por_id(db: AsyncSession, usuario_id: int): 
+    result = await db.execute( 
+        select(UsuarioModel).options( 
+            selectinload(UsuarioModel.departamento).selectinload( 
+                DepartamentoModel.direccion 
+            ), 
+            selectinload(UsuarioModel.proyectos) 
+        ).filter(UsuarioModel.id == usuario_id) 
+    ) 
+    return result.scalars().first() 
  
 async def crear_usuario(db: AsyncSession, usuario: schemas.UsuarioCreate): 
     password_segura = encriptar_password(usuario.password) 
@@ -213,12 +209,41 @@ async def obtener_proyecto_por_id(
     proyecto_id: int
 ):
     result = await db.execute(
-        select(ProyectoModel).filter(
+        select(ProyectoModel).options( 
+            selectinload(ProyectoModel.empleados).selectinload( 
+                UsuarioModel.departamento 
+            ).selectinload(DepartamentoModel.direccion), 
+            selectinload(ProyectoModel.empleados).selectinload( 
+                UsuarioModel.proyectos 
+            ) 
+        ).filter(
             ProyectoModel.id == proyecto_id
         )
     )
 
     return result.scalars().first()
+
+async def obtener_proyectos_por_usuario(
+    db: AsyncSession,
+    usuario_id: int
+):
+    result = await db.execute(
+        select(ProyectoModel).join(
+            usuario_proyecto,
+            ProyectoModel.id == usuario_proyecto.c.proyecto_id
+        ).filter(
+            usuario_proyecto.c.usuario_id == usuario_id
+        ).options(
+            selectinload(ProyectoModel.empleados).selectinload(
+                UsuarioModel.departamento
+            ).selectinload(DepartamentoModel.direccion),
+            selectinload(ProyectoModel.empleados).selectinload(
+                UsuarioModel.proyectos
+            )
+        )
+    )
+
+    return result.scalars().all()
 
 async def actualizar_proyecto(
     db: AsyncSession,
@@ -291,3 +316,19 @@ async def asignar_empleado_a_proyecto(
     await db.refresh(usuario)
 
     return usuario
+
+async def quitar_empleado_de_proyecto(
+    db: AsyncSession,
+    usuario_id: int,
+    proyecto_id: int
+):
+    usuario = await obtener_usuario_por_id(db, usuario_id)
+    proyecto = await obtener_proyecto_por_id(db, proyecto_id)
+
+    if not usuario or not proyecto or proyecto not in usuario.proyectos:
+        return False
+
+    usuario.proyectos.remove(proyecto)
+    await db.commit()
+
+    return True

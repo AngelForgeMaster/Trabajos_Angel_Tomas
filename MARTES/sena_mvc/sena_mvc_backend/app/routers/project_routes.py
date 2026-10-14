@@ -23,18 +23,42 @@ async def listar_proyectos(
 
 
 @router.get(
+    "/mis-proyectos",
+    response_model=list[schemas.ProyectoDetalleResponse]
+)
+async def listar_mis_proyectos(
+    db: AsyncSession = Depends(get_db),
+    usuario_autenticado: UsuarioModel = Depends(
+        obtener_usuario_actual
+    )
+):
+    return await crud.obtener_proyectos_por_usuario(
+        db,
+        usuario_autenticado.id
+    )
+
+
+@router.get(
     "/{proyecto_id}",
-    response_model=schemas.ProyectoDetalleResponse  # ← incluye empleados[]
+    response_model=schemas.ProyectoDetalleResponse
+
 )
 async def obtener_proyecto(
     proyecto_id: int,
     db: AsyncSession = Depends(get_db)
 ):
-    proyecto = await crud.obtener_proyecto_por_id(db, proyecto_id)
-    if not proyecto:
-        raise HTTPException(status_code=404, detail="Proyecto no encontrado")
-    return proyecto
+    proyecto = await crud.obtener_proyecto_por_id(
+        db,
+        proyecto_id
+    )
 
+    if not proyecto:
+        raise HTTPException(
+            status_code=404,
+            detail="Proyecto no encontrado"
+        )
+
+    return proyecto
 
 
 @router.post(
@@ -144,3 +168,36 @@ async def vincular_usuario_a_proyecto(
         )
 
     return resultado
+
+
+@router.delete(
+    "/{proyecto_id}/quitar-usuario/{usuario_id}",
+    status_code=status.HTTP_204_NO_CONTENT
+)
+async def desvincular_usuario_de_proyecto(
+    proyecto_id: int,
+    usuario_id: int,
+    db: AsyncSession = Depends(get_db),
+    admin_actual: UsuarioModel = Depends(
+        obtener_usuario_actual
+    )
+):
+    if admin_actual.rol != "admin":
+        raise HTTPException(
+            status_code=403,
+            detail="Permisos insuficientes para quitar usuarios."
+        )
+
+    eliminado = await crud.quitar_empleado_de_proyecto(
+        db,
+        usuario_id,
+        proyecto_id
+    )
+
+    if not eliminado:
+        raise HTTPException(
+            status_code=404,
+            detail="Usuario, proyecto o asignacion no encontrada."
+        )
+
+    return None

@@ -25,6 +25,7 @@ async def listar_usuarios(
 
     return await crud.obtener_usuarios(db)
 
+
 # ── AÑADIR antes de "get /{usuario_id}" ─────────────────────────────
 @router.get("/me", response_model=schemas.UsuarioResponse)
 async def get_me(

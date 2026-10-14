@@ -3,7 +3,7 @@ import Layout      from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 // Páginas comunes
-import Login        from "./pages/login";   // ← minúscula, igual que el archivo real
+import Login        from "./pages/login";
 import Dashboard    from "./pages/Dashboard";
 
 // Páginas de administrador

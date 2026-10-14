@@ -4,28 +4,25 @@ export const login = async (
   username,
   password
 ) => {
-  
+
   const formData =
-      new URLSearchParams();
+    new URLSearchParams();
 
-    formData.append(
-      "username",
-      username
+  formData.append(
+    "username",
+    username
+  );
+
+  formData.append(
+    "password",
+    password
+  );
+
+  const response =
+    await api.post(
+      "/login",
+      formData
     );
-    
-   formData.append(
-         "password",
-         password
-       );
-     
-       const response =
-         await api.post(
-           "/login",
-           formData
-         );
-     
-       return response.data;
-     };
 
-     
- 
+  return response.data;
+};

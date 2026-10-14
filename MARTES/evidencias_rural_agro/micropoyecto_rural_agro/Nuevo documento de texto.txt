@@ -1,0 +1,247 @@
+--
+-- PostgreSQL database dump
+--
+
+
+-- Dumped from database version 18.4
+-- Dumped by pg_dump version 18.4
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+SET default_tablespace = '';
+SET default_table_access_method = heap;
+
+CREATE TABLE public.alertas (
+    id_alerta integer NOT NULL,
+    parcela_id integer NOT NULL,
+    cultivo_id integer,
+    tipo character varying(50) NOT NULL,
+    descripcion text NOT NULL,
+    nivel_riesgo character varying(20),
+    fecha timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT alertas_nivel_riesgo_check CHECK (((nivel_riesgo)::text = ANY (ARRAY[('Bajo'::character varying)::text, ('Medio'::character varying)::text, ('Alto'::character varying)::text])))
+);
+CREATE SEQUENCE public.alertas_id_alerta_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.alertas_id_alerta_seq OWNED BY public.alertas.id_alerta;
+
+CREATE TABLE public.compradores (
+    id_compradores integer NOT NULL,
+    usuarios_id integer NOT NULL,
+    nombre_compradores character varying(20) NOT NULL,
+    empresa_compradores character varying(30) NOT NULL,
+    email_compradores character varying(100) NOT NULL
+);
+CREATE SEQUENCE public.compradores_id_compradores_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.compradores_id_compradores_seq OWNED BY public.compradores.id_compradores;
+
+CREATE TABLE public.consumo_insumos (
+    id_consumo integer NOT NULL,
+    insumo_id integer NOT NULL,
+    cultivo_id integer NOT NULL,
+    cantidad_usada numeric(10,2) NOT NULL,
+    fecha date NOT NULL
+);
+CREATE SEQUENCE public.consumo_insumos_id_consumo_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.consumo_insumos_id_consumo_seq OWNED BY public.consumo_insumos.id_consumo;
+
+CREATE TABLE public.cosechas (
+    id_cosecha integer NOT NULL,
+    cultivo_id integer NOT NULL,
+    comprador_id integer,
+    fecha_cosecha date NOT NULL,
+    cantidad_kg numeric(10,2) NOT NULL,
+    precio_venta_unitario numeric(10,2) NOT NULL,
+    valor_total numeric(12,2) GENERATED ALWAYS AS ((cantidad_kg * precio_venta_unitario)) STORED
+);
+CREATE SEQUENCE public.cosechas_id_cosecha_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.cosechas_id_cosecha_seq OWNED BY public.cosechas.id_cosecha;
+
+CREATE TABLE public.cultivos (
+    id_cultivos integer NOT NULL,
+    parcelas_id integer NOT NULL,
+    tipo_cultivos character varying(20) NOT NULL,
+    variedad_cultivos character varying(30) NOT NULL,
+    tipo_semilla character varying(30) NOT NULL,
+    cantidad_semilla numeric(12,2) NOT NULL,
+    precio_semilla numeric(12,2) NOT NULL,
+    fecha_siembra date NOT NULL,
+    fecha_estimada_cosecha_cultivos date,
+    estado_siembra character varying(30) DEFAULT 'en crecimiento'::character varying
+);
+CREATE SEQUENCE public.cultivos_id_cultivos_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.cultivos_id_cultivos_seq OWNED BY public.cultivos.id_cultivos;
+
+CREATE TABLE public.empleados (
+    id_empleado integer NOT NULL,
+    nombre character varying(100) NOT NULL,
+    telefono character varying(20),
+    tipo_contrato character varying(30),
+    CONSTRAINT empleados_tipo_contrato_check CHECK (((tipo_contrato)::text = ANY (ARRAY[('Temporal'::character varying)::text, ('Jornalero'::character varying)::text, ('Fijo'::character varying)::text])))
+);
+CREATE SEQUENCE public.empleados_id_empleado_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.empleados_id_empleado_seq OWNED BY public.empleados.id_empleado;
+
+CREATE TABLE public.finanzas (
+    id_finanza integer NOT NULL,
+    parcela_id integer,
+    cultivo_id integer,
+    tipo character varying(10) NOT NULL,
+    categoria character varying(50) NOT NULL,
+    monto numeric(12,2) NOT NULL,
+    concepto text,
+    fecha date NOT NULL,
+    CONSTRAINT finanzas_tipo_check CHECK (((tipo)::text = ANY (ARRAY[('Ingreso'::character varying)::text, ('Gasto'::character varying)::text])))
+);
+CREATE SEQUENCE public.finanzas_id_finanza_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.finanzas_id_finanza_seq OWNED BY public.finanzas.id_finanza;
+
+CREATE TABLE public.fincas (
+    id_fincas integer NOT NULL,
+    usuarios_id integer NOT NULL,
+    nombre_fincas character varying(50) NOT NULL,
+    ubicacion_fincas character varying(50) NOT NULL,
+    coordenada_fincas jsonb NOT NULL
+);
+CREATE SEQUENCE public.fincas_id_fincas_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.fincas_id_fincas_seq OWNED BY public.fincas.id_fincas;
+
+CREATE TABLE public.foto_cultivos (
+    id_fotos integer NOT NULL,
+    cultivo_id integer NOT NULL,
+    url_imagen_foto_cultivos character varying(255) NOT NULL,
+    descripcion_foto_cultivos text NOT NULL,
+    fecha_foto_cultivos timestamp without time zone DEFAULT CURRENT_TIMESTAMP
+);
+CREATE SEQUENCE public.foto_cultivos_id_fotos_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.foto_cultivos_id_fotos_seq OWNED BY public.foto_cultivos.id_fotos;
+
+CREATE TABLE public.inventario_insumos (
+    id_insumo integer NOT NULL,
+    nombre character varying(100) NOT NULL,
+    categoria character varying(50) NOT NULL,
+    cantidad_stock numeric(10,2) NOT NULL,
+    unidad_medida character varying(20) NOT NULL,
+    costo_unitario numeric(12,2) NOT NULL
+);
+CREATE SEQUENCE public.inventario_insumos_id_insumo_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.inventario_insumos_id_insumo_seq OWNED BY public.inventario_insumos.id_insumo;
+
+CREATE TABLE public.jornales (
+    id_jornal integer NOT NULL,
+    empleado_id integer NOT NULL,
+    cultivo_id integer,
+    fecha date NOT NULL,
+    pago_jornal numeric(10,2) NOT NULL,
+    horas_trabajadas numeric(4,1)
+);
+CREATE SEQUENCE public.jornales_id_jornal_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.jornales_id_jornal_seq OWNED BY public.jornales.id_jornal;
+
+CREATE TABLE public.parcelas (
+    id_parcelas integer NOT NULL,
+    fincas_id integer NOT NULL,
+    nombre_parcelas character varying(30) NOT NULL,
+    area_parcelas numeric(12,2) NOT NULL,
+    coordenadas_parcelas jsonb NOT NULL
+);
+CREATE SEQUENCE public.parcelas_id_parcelas_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.parcelas_id_parcelas_seq OWNED BY public.parcelas.id_parcelas;
+
+CREATE TABLE public.plan_riego (
+    id_riego integer NOT NULL,
+    cultivo_id integer NOT NULL,
+    fecha_programada timestamp without time zone NOT NULL,
+    frecuencia_dias integer,
+    volumen_agua numeric(8,2),
+    completado boolean DEFAULT false
+);
+CREATE SEQUENCE public.plan_riego_id_riego_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.plan_riego_id_riego_seq OWNED BY public.plan_riego.id_riego;
+
+CREATE TABLE public.usuarios (
+    id_usuarios integer NOT NULL,
+    nombre_usuarios character varying(30) NOT NULL,
+    apellido_usuarios character varying(30) NOT NULL,
+    email_usuarios character varying(100) NOT NULL,
+    contrasenia_usuarios character varying(255) NOT NULL,
+    rol_usuarios character varying(20) NOT NULL,
+    CONSTRAINT usuarios_rol_usuarios_check CHECK (((rol_usuarios)::text = ANY (ARRAY[('cliente'::character varying)::text, ('administrador'::character varying)::text, ('agricultor'::character varying)::text, ('agronomo'::character varying)::text, ('operario'::character varying)::text])))
+);
+CREATE SEQUENCE public.usuarios_id_usuarios_seq AS integer START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE CACHE 1;
+ALTER SEQUENCE public.usuarios_id_usuarios_seq OWNED BY public.usuarios.id_usuarios;
+
+ALTER TABLE ONLY public.alertas ALTER COLUMN id_alerta SET DEFAULT nextval('public.alertas_id_alerta_seq'::regclass);
+ALTER TABLE ONLY public.compradores ALTER COLUMN id_compradores SET DEFAULT nextval('public.compradores_id_compradores_seq'::regclass);
+ALTER TABLE ONLY public.consumo_insumos ALTER COLUMN id_consumo SET DEFAULT nextval('public.consumo_insumos_id_consumo_seq'::regclass);
+ALTER TABLE ONLY public.cosechas ALTER COLUMN id_cosecha SET DEFAULT nextval('public.cosechas_id_cosecha_seq'::regclass);
+ALTER TABLE ONLY public.cultivos ALTER COLUMN id_cultivos SET DEFAULT nextval('public.cultivos_id_cultivos_seq'::regclass);
+ALTER TABLE ONLY public.empleados ALTER COLUMN id_empleado SET DEFAULT nextval('public.empleados_id_empleado_seq'::regclass);
+ALTER TABLE ONLY public.finanzas ALTER COLUMN id_finanza SET DEFAULT nextval('public.finanzas_id_finanza_seq'::regclass);
+ALTER TABLE ONLY public.fincas ALTER COLUMN id_fincas SET DEFAULT nextval('public.fincas_id_fincas_seq'::regclass);
+ALTER TABLE ONLY public.foto_cultivos ALTER COLUMN id_fotos SET DEFAULT nextval('public.foto_cultivos_id_fotos_seq'::regclass);
+ALTER TABLE ONLY public.inventario_insumos ALTER COLUMN id_insumo SET DEFAULT nextval('public.inventario_insumos_id_insumo_seq'::regclass);
+ALTER TABLE ONLY public.jornales ALTER COLUMN id_jornal SET DEFAULT nextval('public.jornales_id_jornal_seq'::regclass);
+ALTER TABLE ONLY public.parcelas ALTER COLUMN id_parcelas SET DEFAULT nextval('public.parcelas_id_parcelas_seq'::regclass);
+ALTER TABLE ONLY public.plan_riego ALTER COLUMN id_riego SET DEFAULT nextval('public.plan_riego_id_riego_seq'::regclass);
+ALTER TABLE ONLY public.usuarios ALTER COLUMN id_usuarios SET DEFAULT nextval('public.usuarios_id_usuarios_seq'::regclass);
+
+COPY public.usuarios (id_usuarios, nombre_usuarios, apellido_usuarios, email_usuarios, contrasenia_usuarios, rol_usuarios) FROM stdin;
+2	Admin	RuralAgro	admin@ruralagro.com	$2b$12$bkP.Qxwn7.xaiyJe6KElWONGhnO185IaG2pCdFHJY5LMgiOcJEYWG	administrador
+\.
+
+SELECT pg_catalog.setval('public.alertas_id_alerta_seq', 1, false);
+SELECT pg_catalog.setval('public.compradores_id_compradores_seq', 1, false);
+SELECT pg_catalog.setval('public.consumo_insumos_id_consumo_seq', 1, false);
+SELECT pg_catalog.setval('public.cosechas_id_cosecha_seq', 1, false);
+SELECT pg_catalog.setval('public.cultivos_id_cultivos_seq', 1, false);
+SELECT pg_catalog.setval('public.empleados_id_empleado_seq', 1, false);
+SELECT pg_catalog.setval('public.finanzas_id_finanza_seq', 1, false);
+SELECT pg_catalog.setval('public.fincas_id_fincas_seq', 1, false);
+SELECT pg_catalog.setval('public.foto_cultivos_id_fotos_seq', 1, false);
+SELECT pg_catalog.setval('public.inventario_insumos_id_insumo_seq', 1, false);
+SELECT pg_catalog.setval('public.jornales_id_jornal_seq', 1, false);
+SELECT pg_catalog.setval('public.parcelas_id_parcelas_seq', 1, false);
+SELECT pg_catalog.setval('public.plan_riego_id_riego_seq', 1, false);
+SELECT pg_catalog.setval('public.usuarios_id_usuarios_seq', 2, true);
+
+ALTER TABLE ONLY public.alertas ADD CONSTRAINT alertas_pkey PRIMARY KEY (id_alerta);
+ALTER TABLE ONLY public.compradores ADD CONSTRAINT compradores_pkey PRIMARY KEY (id_compradores);
+ALTER TABLE ONLY public.consumo_insumos ADD CONSTRAINT consumo_insumos_pkey PRIMARY KEY (id_consumo);
+ALTER TABLE ONLY public.cosechas ADD CONSTRAINT cosechas_pkey PRIMARY KEY (id_cosecha);
+ALTER TABLE ONLY public.cultivos ADD CONSTRAINT cultivos_pkey PRIMARY KEY (id_cultivos);
+ALTER TABLE ONLY public.empleados ADD CONSTRAINT empleados_pkey PRIMARY KEY (id_empleado);
+ALTER TABLE ONLY public.finanzas ADD CONSTRAINT finanzas_pkey PRIMARY KEY (id_finanza);
+ALTER TABLE ONLY public.fincas ADD CONSTRAINT fincas_pkey PRIMARY KEY (id_fincas);
+ALTER TABLE ONLY public.foto_cultivos ADD CONSTRAINT foto_cultivos_pkey PRIMARY KEY (id_fotos);
+ALTER TABLE ONLY public.inventario_insumos ADD CONSTRAINT inventario_insumos_pkey PRIMARY KEY (id_insumo);
+ALTER TABLE ONLY public.jornales ADD CONSTRAINT jornales_pkey PRIMARY KEY (id_jornal);
+ALTER TABLE ONLY public.parcelas ADD CONSTRAINT parcelas_pkey PRIMARY KEY (id_parcelas);
+ALTER TABLE ONLY public.plan_riego ADD CONSTRAINT plan_riego_pkey PRIMARY KEY (id_riego);
+ALTER TABLE ONLY public.usuarios ADD CONSTRAINT usuarios_pkey PRIMARY KEY (id_usuarios);
+
+ALTER TABLE ONLY public.alertas ADD CONSTRAINT alertas_cultivo_id_fkey FOREIGN KEY (cultivo_id) REFERENCES public.cultivos(id_cultivos) ON DELETE SET NULL;
+ALTER TABLE ONLY public.alertas ADD CONSTRAINT alertas_parcela_id_fkey FOREIGN KEY (parcela_id) REFERENCES public.parcelas(id_parcelas) ON DELETE CASCADE;
+ALTER TABLE ONLY public.compradores ADD CONSTRAINT compradores_usuarios_id_fkey FOREIGN KEY (usuarios_id) REFERENCES public.usuarios(id_usuarios) ON DELETE CASCADE;
+ALTER TABLE ONLY public.consumo_insumos ADD CONSTRAINT consumo_insumos_cultivo_id_fkey FOREIGN KEY (cultivo_id) REFERENCES public.cultivos(id_cultivos) ON DELETE CASCADE;
+ALTER TABLE ONLY public.consumo_insumos ADD CONSTRAINT consumo_insumos_insumo_id_fkey FOREIGN KEY (insumo_id) REFERENCES public.inventario_insumos(id_insumo) ON DELETE RESTRICT;
+ALTER TABLE ONLY public.cosechas ADD CONSTRAINT cosechas_comprador_id_fkey FOREIGN KEY (comprador_id) REFERENCES public.compradores(id_compradores) ON DELETE SET NULL;
+ALTER TABLE ONLY public.cosechas ADD CONSTRAINT cosechas_cultivo_id_fkey FOREIGN KEY (cultivo_id) REFERENCES public.cultivos(id_cultivos) ON DELETE CASCADE;
+ALTER TABLE ONLY public.cultivos ADD CONSTRAINT cultivos_parcelas_id_fkey FOREIGN KEY (parcelas_id) REFERENCES public.parcelas(id_parcelas) ON DELETE CASCADE;
+ALTER TABLE ONLY public.finanzas ADD CONSTRAINT finanzas_cultivo_id_fkey FOREIGN KEY (cultivo_id) REFERENCES public.cultivos(id_cultivos) ON DELETE CASCADE;
+ALTER TABLE ONLY public.finanzas ADD CONSTRAINT finanzas_parcela_id_fkey FOREIGN KEY (parcela_id) REFERENCES public.parcelas(id_parcelas) ON DELETE CASCADE;
+ALTER TABLE ONLY public.fincas ADD CONSTRAINT fincas_usuarios_id_fkey FOREIGN KEY (usuarios_id) REFERENCES public.usuarios(id_usuarios) ON DELETE CASCADE;
+ALTER TABLE ONLY public.foto_cultivos ADD CONSTRAINT foto_cultivos_cultivo_id_fkey FOREIGN KEY (cultivo_id) REFERENCES public.cultivos(id_cultivos) ON DELETE CASCADE;
+ALTER TABLE ONLY public.jornales ADD CONSTRAINT jornales_cultivo_id_fkey FOREIGN KEY (cultivo_id) REFERENCES public.cultivos(id_cultivos) ON DELETE SET NULL;
+ALTER TABLE ONLY public.jornales ADD CONSTRAINT jornales_empleado_id_fkey FOREIGN KEY (empleado_id) REFERENCES public.empleados(id_empleado) ON DELETE CASCADE;
+ALTER TABLE ONLY public.parcelas ADD CONSTRAINT parcelas_fincas_id_fkey FOREIGN KEY (fincas_id) REFERENCES public.fincas(id_fincas) ON DELETE CASCADE;
+ALTER TABLE ONLY public.plan_riego ADD CONSTRAINT plan_riego_cultivo_id_fkey FOREIGN KEY (cultivo_id) REFERENCES public.cultivos(id_cultivos) ON DELETE CASCADE;
+

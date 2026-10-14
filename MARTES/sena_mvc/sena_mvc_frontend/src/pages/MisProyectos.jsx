@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getMe } from "../api/users";
-import { getProyectos } from "../api/projects";
+import { getMisProyectos } from "../api/projects";
 
 export default function MisProyectos() {
   const [proyectos, setProyectos] = useState([]);
@@ -15,20 +14,8 @@ export default function MisProyectos() {
 
   async function cargarMisProyectos() {
     try {
-      // 1. Obtener id del usuario autenticado
-      const resPerfil  = await getMe();
-      const userId     = resPerfil.data.id;
-
-      // 2. Obtener todos los proyectos
-      const resProyectos = await getProyectos();
-
-      // 3. Filtrar solo los proyectos donde el usuario aparece como empleado
-      const misProy = resProyectos.data.filter(p =>
-        Array.isArray(p.empleados) &&
-        p.empleados.some(e => e.id === userId)
-      );
-
-      setProyectos(misProy);
+      const resProyectos = await getMisProyectos();
+      setProyectos(resProyectos.data);
     } catch (e) {
       setError("Error al cargar tus proyectos.");
     } finally {

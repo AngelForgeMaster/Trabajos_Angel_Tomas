@@ -1,0 +1,73 @@
+Guía de Configuración y Arranque 
+Si acabas de clonar o descargar este proyecto desde GitHub y no arranca, sigue estos pasos al pie de la letra:
+
+
+1. Configuración del Backend (Python / FastAPI)
+Activar el entorno virtual (venv): Entra a la carpeta del backend y activa el entorno. Debe estar siempre activo en la terminal donde ejecutes comandos de Python o el servidor:
+
+cd sena_mvc_backend
+
+.\venv\Scripts\Activate
+
+Instalar dependencias necesarias: Si no tienes las librerías instaladas, ejecuta el siguiente comando (incluye la versión compatible de bcrypt para evitar errores):
+
+pip install uvicorn fastapi sqlalchemy psycopg2-binary python-dotenv greenlet sqlalchemy[asyncio] asyncpg passlib bcrypt==3.2.2 PyJWT python-multipart email-validator openpyxl
+
+Configurar la Base de Datos (.env):
+
+Asegúrate de tener una base de datos creada en PostgreSQL (por ejemplo, en pgAdmin 4 bajo el nombre sena_mvc_db_async).
+Configura correctamente tu archivo .env en la raíz del backend con tu contraseña de Postgres.
+Verifica que los archivos de configuración de base de datos apunten correctamente al .env.
+
+Crear el Usuario Administrador (¡Muy Importante!): Antes de iniciar sesión, debes poblar la base de datos con el usuario administrador por defecto ejecutando el script de seed:
+
+python seed.py
+
+Credenciales de Administrador creadas por defecto:
+Correo: admin@sena.edu.co
+Contraseña: Admin123*
+
+
+2. Configuración del Frontend (React / Vite)
+Entrar a la carpeta del frontend:
+
+cd sena_mvc_frontend
+
+Instalar dependencias de Node (si es la primera vez):
+
+npm install
+
+
+3. Resolución de Problemas de Conexión y Puertos
+Si al abrir la aplicación en el navegador (http://localhost:5173) intentas iniciar sesión y te sale un error de conexión o credenciales inválidas:
+
+Inspecciona la petición:
+
+Abre las herramientas de desarrollador del navegador presionando F12.
+Ve a la pestaña Network (Red).
+Intenta iniciar sesión de nuevo y haz clic sobre la línea roja que arroja el fallo (suele llamarse login).
+Revisa en la pestaña Headers (Cabeceras) el campo Request URL. Si apunta a un puerto incorrecto (como 8081 o 3000), cámbialo.
+
+Ajusta la URL base en el Frontend:
+
+Ve a tu proyecto en VS Code y abre el archivo src/api/client.js.
+Modifica la variable baseURL para que apunte exactamente al puerto local de tu backend (8000):
+
+baseURL: 'http://127.0.0.1:8000'
+
+Guarda el archivo presionando Ctrl + S.
+
+
+4. Comandos para Iniciar el Proyecto (¡Recuerda tener DOS terminales abiertas!)
+Terminal 1: Backend (FastAPI)
+cd sena_mvc_backend
+
+.\venv\Scripts\Activate
+
+uvicorn app.main:app --reload
+Terminal 2: Frontend (React)
+cd sena_mvc_frontend
+
+npm run dev
+
+Una vez encendidos ambos servidores, entra en tu navegador a: http://localhost:5173 e inicia sesión con el usuario administrador.
