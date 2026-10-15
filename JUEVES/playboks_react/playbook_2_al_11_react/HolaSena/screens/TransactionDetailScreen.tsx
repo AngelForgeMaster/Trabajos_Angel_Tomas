@@ -3,6 +3,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useExpenses } from '../src/context/ExpenseContext'; // Ajusta la ruta relativa para salir a src
+import { formatCurrency } from '../src/utils/formatters';
 
 async function getDefaultCalendarId() {
   const calendars = await Calendar.getCalendarsAsync(
@@ -70,7 +71,7 @@ export default function TransactionDetailScreen() {
       <View style={styles.detailCard}>
         <DetailRow label="Nombre" value={expense.name} />
         <DetailRow label="Tipo" value={expense.type} />
-        <DetailRow label="Monto" value={`$${expense.amount}`} />
+        <DetailRow label="Monto" value={formatCurrency(expense.amount)} />
         <DetailRow label="Categoría" value={expense.category} />
         <DetailRow label="Fecha" value={expense.date} />
       </View>

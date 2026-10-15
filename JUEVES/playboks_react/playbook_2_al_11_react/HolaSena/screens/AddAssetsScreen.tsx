@@ -14,6 +14,7 @@ import {
   View
 } from 'react-native';
 import { useExpenses } from '../src/context/ExpenseContext';
+import { formatCurrency } from '../src/utils/formatters';
 
 export default function AddAssets() {
   const { expenses, addExpense, deleteExpense, isLoaded } = useExpenses();
@@ -246,7 +247,7 @@ export default function AddAssets() {
         renderItem={({ item }) => (
           <View style={styles.expenseItem}>
             <View style={styles.expenseInfo}>
-              <Text>{item.type} | {item.name} | {item.amount} | {item.category}</Text>
+              <Text>{item.type} | {item.name} | {formatCurrency(item.amount)} | {item.category}</Text>
             </View>
             {item.receiptUri && (
               <Image

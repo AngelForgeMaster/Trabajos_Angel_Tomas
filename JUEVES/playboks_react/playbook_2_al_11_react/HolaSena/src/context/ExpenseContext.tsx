@@ -1,6 +1,7 @@
 // src/app/context/ExpenseContext.tsx
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { addExpense as addExpenseLogic } from '../logic/expenseLogic';
 
 // Definimos la estructura del gasto exactamente como la pide Walver
 export interface Expense {
@@ -82,11 +83,7 @@ export function ExpenseProvider({ children }: { children: ReactNode }) {
   }, [expenses, isLoaded]);
 
   const addExpense = (expenseData: Omit<Expense, 'id'>) => {
-    const newExpense: Expense = {
-      ...expenseData,
-      id: Date.now().toString(),
-    };
-    setExpenses((prev) => [...prev, newExpense]);
+  setExpenses((prev) => addExpenseLogic(prev, expenseData));
   };
 
   const deleteExpense = (id: string) => {
